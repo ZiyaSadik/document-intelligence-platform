@@ -1,0 +1,120 @@
+{
+  "generated_by": "scripts/generate_samples.py",
+  "model": "claude-opus-5",
+  "note": "Real pipeline output. Nothing in these files is hand-written or hardcoded.",
+  "samples": [
+    {
+      "file": "balance_sheet_vector_pdf.json",
+      "source_document": "Consolidated Balance Sheet 2024.pdf",
+      "document_type": "balance_sheet",
+      "why_included": "No text layer and no embedded image; must be rasterised.",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 6,
+        "failed": 0,
+        "not_applicable": 0,
+        "ocr_used": true,
+        "confidence": 0.895,
+        "ms": 40132
+      }
+    },
+    {
+      "file": "cash_flow_native_text_pdf.json",
+      "source_document": "Consolidated Cash Flow Statement 2022.pdf",
+      "document_type": "cash_flow_statement",
+      "why_included": "The one PDF with a real text layer; exercises the fast path (expect ocr_used=false).",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 4,
+        "failed": 0,
+        "not_applicable": 0,
+        "ocr_used": false,
+        "confidence": 0.98,
+        "ms": 48883
+      }
+    },
+    {
+      "file": "cash_flow_two_page_pdf.json",
+      "source_document": "Consolidated Cash Flow Statement 2019.pdf",
+      "document_type": "cash_flow_statement",
+      "why_included": "Two pages; closing balances sit on page 2.",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 4,
+        "failed": 0,
+        "not_applicable": 0,
+        "ocr_used": true,
+        "confidence": 0.81,
+        "ms": 61572
+      }
+    },
+    {
+      "file": "invoice_phone_photo.json",
+      "source_document": "20251118_000612.jpg",
+      "document_type": "invoice",
+      "why_included": "4.4 MB phone photo of an Indian GST invoice. Exercises EXIF rotation and downscaling, tax split across CGST/SGST with no combined tax line, and the missing-value scenario: the quantity column is not legible, so the per-line checks report NOT_APPLICABLE rather than guessing at it.",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 9,
+        "failed": 0,
+        "not_applicable": 7,
+        "ocr_used": true,
+        "confidence": 0.901,
+        "ms": 34459
+      }
+    },
+    {
+      "file": "invoice_receipt_scanned.json",
+      "source_document": "X51005361895.jpg",
+      "document_type": "invoice",
+      "why_included": "Scanned thermal receipt; tax-inclusive total, cash and change.",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 4,
+        "failed": 0,
+        "not_applicable": 0,
+        "ocr_used": true,
+        "confidence": 0.913,
+        "ms": 15308
+      }
+    },
+    {
+      "file": "profit_and_loss_vector_pdf.json",
+      "source_document": "Consolidated Profit & Loss 2022.pdf",
+      "document_type": "profit_and_loss",
+      "why_included": "Comparative P&L; income, expenditure and appropriation checks.",
+      "outcome": "PASS",
+      "summary": {
+        "processing_status": "PASS",
+        "validation_status": "PASS",
+        "checks": 10,
+        "failed": 0,
+        "not_applicable": 0,
+        "ocr_used": true,
+        "confidence": 0.839,
+        "ms": 48401
+      }
+    },
+    {
+      "file": "unsupported_file_rejected.json",
+      "source_document": "README.md",
+      "document_type": "invoice",
+      "why_included": "Not a PDF/JPG/PNG; captures the rejection envelope.",
+      "outcome": "REJECTED",
+      "summary": {
+        "http_status": 400,
+        "code": "UNSUPPORTED_FILE_TYPE"
+      }
+    }
+  ]
+}

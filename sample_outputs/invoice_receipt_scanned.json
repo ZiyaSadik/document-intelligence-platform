@@ -1,0 +1,449 @@
+{
+  "document_name": "X51005361895.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "overall_confidence": 0.913,
+  "file_validation": {
+    "file_type": "image/jpeg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "invoice_number": {
+      "value": "1CR0576494",
+      "raw_value": "1CR0576494",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "TRN: 1CR0576494",
+        "page_number": 1
+      }
+    },
+    "invoice_date": {
+      "value": "25/01/2018",
+      "raw_value": "25/01/2018",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "25/01/2018  1:22:56PM",
+        "page_number": 1
+      }
+    },
+    "due_date": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "purchase_order_number": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "vendor_name": {
+      "value": "FUYI MINI MARKET",
+      "raw_value": "FUYI MINI MARKET",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "FUYI MINI MARKET",
+        "page_number": 1
+      }
+    },
+    "vendor_address": {
+      "value": "NO 43-45-47G, TAMAN SEJATI, IJOK, 45600 BESTARI JAYA, KUALA SELANGOR.",
+      "raw_value": "NO 43-45-47G, TAMAN SEJATI, IJOK, 45600 BESTARI JAYA, KUALA SELANGOR.",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "NO 43-45-47G, TAMAN SEJATI, IJOK, 45600 BESTARI JAYA, KUALA SELANGOR.",
+        "page_number": 1
+      }
+    },
+    "vendor_tax_id": {
+      "value": "001601310720",
+      "raw_value": "001601310720",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "GST No. : 001601310720",
+        "page_number": 1
+      }
+    },
+    "vendor_contact": {
+      "value": "03-3279 1851",
+      "raw_value": "03-3279 1851",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "03-3279 1851,",
+        "page_number": 1
+      }
+    },
+    "customer_name": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "customer_address": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "tax_rate": {
+      "value": "6%",
+      "raw_value": "6%",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total Includes GST 6%",
+        "page_number": 1
+      }
+    },
+    "payment_method": {
+      "value": "Cash",
+      "raw_value": "Cash",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash                            50.00",
+        "page_number": 1
+      }
+    },
+    "subtotal": {
+      "value": 8.49,
+      "raw_value": "8.49",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "SR                8.49        0.51",
+        "page_number": 1
+      }
+    },
+    "discount": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "tax_amount": {
+      "value": 0.51,
+      "raw_value": "0.51",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "GST 6% +   0.51",
+        "page_number": 1
+      }
+    },
+    "rounding_adjustment": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "total_amount": {
+      "value": 9.0,
+      "raw_value": "9.00",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total Includes GST 6%        9.00",
+        "page_number": 1
+      }
+    },
+    "cash_paid": {
+      "value": 50.0,
+      "raw_value": "50.00",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Cash                            50.00",
+        "page_number": 1
+      }
+    },
+    "change": {
+      "value": 41.0,
+      "raw_value": "41.00",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Change                          41.00",
+        "page_number": 1
+      }
+    },
+    "tax_inclusive": true,
+    "line_items": [
+      {
+        "description": "013 SUMMER CUP 48X230ML",
+        "quantity": 1.0,
+        "unit_price": 8.49,
+        "amount": 8.49,
+        "raw": {
+          "quantity": "1",
+          "unit_price": "8.49",
+          "amount": "8.49"
+        },
+        "page_number": 1
+      }
+    ],
+    "additional_fields": [
+      {
+        "label": "BR No.",
+        "value": "0195932-X",
+        "raw_value": "0195932-X",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "BR No.: 0195932-X",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Document Title",
+        "value": "TAX INVOICE",
+        "raw_value": "TAX INVOICE",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "TAX INVOICE",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Time",
+        "value": "1:22:56PM",
+        "raw_value": "1:22:56PM",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "25/01/2018  1:22:56PM",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "COUNTER",
+        "value": 1.0,
+        "raw_value": "1",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "COUNTER 1",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "CASHIER",
+        "value": "HOCK",
+        "raw_value": "HOCK",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "CASHIER: HOCK",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "UOM",
+        "value": "KOTAI",
+        "raw_value": "KOTAI",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "1    KOTAI 8.49    8.49        9.00      SR",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Amt Inc.",
+        "value": 9.0,
+        "raw_value": "9.00",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "1    KOTAI 8.49    8.49        9.00      SR",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Tax Code",
+        "value": "SR",
+        "raw_value": "SR",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "1    KOTAI 8.49    8.49        9.00      SR",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "*Total Qty",
+        "value": 1.0,
+        "raw_value": "1.00",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "*Total Qty: 1.00                 9.00",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "*Total Qty Amount",
+        "value": 9.0,
+        "raw_value": "9.00",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "*Total Qty: 1.00                 9.00",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "GST Summary SR Amount",
+        "value": 8.49,
+        "raw_value": "8.49",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "SR                8.49        0.51",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "GST Summary SR Tax",
+        "value": 0.51,
+        "raw_value": "0.51",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "SR                8.49        0.51",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Note",
+        "value": "*Goods sold are not returnable",
+        "raw_value": "*Goods sold are not returnable",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "*Goods sold are not returnable",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Message",
+        "value": "Thank you for shopping at  FUYI MINI MARKET",
+        "raw_value": "Thank you for shopping at  FUYI MINI MARKET",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Thank you for shopping at  FUYI MINI MARKET",
+          "page_number": 1
+        }
+      }
+    ],
+    "missing_fields": [
+      "currency",
+      "customer_address",
+      "customer_name",
+      "discount",
+      "due_date",
+      "purchase_order_number",
+      "rounding_adjustment"
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "line_item_1_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for '013 SUMMER CUP 48X230ML'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": 1.0,
+          "unit_price": 8.49
+        },
+        "calculated_value": 8.49,
+        "reported_value": 8.49,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_items_subtotal_check",
+        "description": "The sum of all line totals should reconcile to the reported subtotal.",
+        "formula": "sum(line_item.amount)",
+        "period": null,
+        "operands": {
+          "line_1": 8.49
+        },
+        "calculated_value": 8.49,
+        "reported_value": 8.49,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "invoice_total_check",
+        "description": "The taxable amount plus tax, less any discount, should equal the reported total. Tax is added on top of the taxable amount. Tax treatment was derived from the reported figures (document states: inclusive).",
+        "formula": "subtotal + tax_amount - discount (+ rounding)",
+        "period": null,
+        "operands": {
+          "subtotal": 8.49,
+          "tax_amount": 0.51,
+          "discount": null
+        },
+        "calculated_value": 9.0,
+        "reported_value": 9.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "cash_change_check",
+        "description": "Cash paid less the total amount should equal the change given.",
+        "formula": "cash_paid - total_amount",
+        "period": null,
+        "operands": {
+          "cash_paid": 50.0,
+          "total_amount": 9.0
+        },
+        "calculated_value": 41.0,
+        "reported_value": 41.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "extraction_method": "vision_llm",
+    "model": "claude-opus-5",
+    "pages_processed": 1,
+    "processed_at": "2026-09-11T05:07:12.071844Z",
+    "processing_time_ms": 15308
+  }
+}

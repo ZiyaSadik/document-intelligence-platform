@@ -1,0 +1,1266 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2019.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "overall_confidence": 0.81,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 2,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "entity_name": {
+      "value": "HDFC Bank Limited",
+      "raw_value": "HDFC Bank Limited",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "HDFC Bank Limited Annual Report 2018 - 2019",
+        "page_number": 1
+      }
+    },
+    "statement_title": {
+      "value": "CONSOLIDATED CASH FLOW STATEMENT For the year ended March 31, 2019",
+      "raw_value": "CONSOLIDATED CASH FLOW STATEMENT For the year ended March 31, 2019",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "CONSOLIDATED CASH FLOW STATEMENT For the year ended March 31, 2019",
+        "page_number": 1
+      }
+    },
+    "currency": {
+      "value": "₹",
+      "raw_value": "₹",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in '000",
+        "page_number": 1
+      }
+    },
+    "units": {
+      "value": "in '000",
+      "raw_value": "in '000",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in '000",
+        "page_number": 1
+      }
+    },
+    "periods": [
+      {
+        "label": "Year ended 31-Mar-19",
+        "period_end_date": "2019-03-31"
+      },
+      {
+        "label": "Year ended 31-Mar-18",
+        "period_end_date": "2018-03-31"
+      }
+    ],
+    "line_items": [
+      {
+        "label": "Consolidated profit before income tax",
+        "section": "Cash flows from operating activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated profit before income tax 342,049,793 284,131,068",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 342049793.0,
+            "raw_value": "342,049,793",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 284131068.0,
+            "raw_value": "284,131,068",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Depreciation on fixed assets",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Depreciation on fixed assets 12,206,675 9,667,819",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 12206675.0,
+            "raw_value": "12,206,675",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 9667819.0,
+            "raw_value": "9,667,819",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "(Profit) / loss on revaluation of investments",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on revaluation of investments 152,437 1,570,448",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 152437.0,
+            "raw_value": "152,437",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 1570448.0,
+            "raw_value": "1,570,448",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Amortisation of premia on held to maturity investments",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Amortisation of premia on held to maturity investments 4,534,626 3,599,102",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 4534626.0,
+            "raw_value": "4,534,626",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 3599102.0,
+            "raw_value": "3,599,102",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "(Profit) / loss on sale of fixed assets",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on sale of fixed assets (62,054) 11,833",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -62054.0,
+            "raw_value": "(62,054)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 11833.0,
+            "raw_value": "11,833",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Provision / charge for non performing assets",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision / charge for non performing assets 74,186,708 57,553,339",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 74186708.0,
+            "raw_value": "74,186,708",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 57553339.0,
+            "raw_value": "57,553,339",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Provision for dimunition in value of investments",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision for dimunition in value of investments 47,066 308,075",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 47066.0,
+            "raw_value": "47,066",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 308075.0,
+            "raw_value": "308,075",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Provision for standard assets",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision for standard assets 6,861,413 6,575,746",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 6861413.0,
+            "raw_value": "6,861,413",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 6575746.0,
+            "raw_value": "6,575,746",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Contingency provisions",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Contingency provisions 4,991,092 3,961,191",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 4991092.0,
+            "raw_value": "4,991,092",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 3961191.0,
+            "raw_value": "3,961,191",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Share in current year's profits of associates",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Share in current year's profits of associates - (5,221)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": -5221.0,
+            "raw_value": "(5,221)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "444,967,756 367,373,400",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 444967756.0,
+            "raw_value": "444,967,756",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 367373400.0,
+            "raw_value": "367,373,400",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "(Increase) / decrease in investments (excluding investments in subsidiaries)",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Increase) / decrease in investments (excluding investments in subsidiaries) (489,301,670) (282,310,524)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -489301670.0,
+            "raw_value": "(489,301,670)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -282310524.0,
+            "raw_value": "(282,310,524)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "(Increase) / decrease in advances",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Increase) / decrease in advances (1,766,074,976) (1,203,053,719)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -1766074976.0,
+            "raw_value": "(1,766,074,976)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -1203053719.0,
+            "raw_value": "(1,203,053,719)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Increase / (decrease) in deposits",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase / (decrease) in deposits 1,341,275,360 1,452,408,940",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 1341275360.0,
+            "raw_value": "1,341,275,360",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 1452408940.0,
+            "raw_value": "1,452,408,940",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "(Increase) / decrease in other assets",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Increase) / decrease in other assets (122,449,924) 52,336,433",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -122449924.0,
+            "raw_value": "(122,449,924)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 52336433.0,
+            "raw_value": "52,336,433",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Increase / (decrease) in other liabilities and provisions",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase / (decrease) in other liabilities and provisions 87,851,107 (114,511,772)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 87851107.0,
+            "raw_value": "87,851,107",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -114511772.0,
+            "raw_value": "(114,511,772)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "",
+        "section": "Cash flows from operating activities - Adjustments for:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(503,732,347) 272,242,758",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -503732347.0,
+            "raw_value": "(503,732,347)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 272242758.0,
+            "raw_value": "272,242,758",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Direct taxes paid (net of refunds)",
+        "section": "Cash flows from operating activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Direct taxes paid (net of refunds) (124,983,100) (100,098,994)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -124983100.0,
+            "raw_value": "(124,983,100)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -100098994.0,
+            "raw_value": "(100,098,994)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Net cash flow (used in) / from operating activities",
+        "section": "Cash flows from operating activities",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow (used in) / from operating activities (628,715,447) 172,143,764",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -628715447.0,
+            "raw_value": "(628,715,447)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 172143764.0,
+            "raw_value": "172,143,764",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Purchase of fixed assets",
+        "section": "Cash flows used in investing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Purchase of fixed assets (16,206,124) (8,477,746)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -16206124.0,
+            "raw_value": "(16,206,124)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -8477746.0,
+            "raw_value": "(8,477,746)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Proceeds from sale of fixed assets",
+        "section": "Cash flows used in investing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from sale of fixed assets 222,037 99,204",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 222037.0,
+            "raw_value": "222,037",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 99204.0,
+            "raw_value": "99,204",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Investment in subsidiaries and / or joint ventures",
+        "section": "Cash flows used in investing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Investment in subsidiaries and / or joint ventures - (143,331)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": -143331.0,
+            "raw_value": "(143,331)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Net cash flow used in investing activities",
+        "section": "Cash flows used in investing activities",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow used in investing activities (15,984,087) (8,521,873)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -15984087.0,
+            "raw_value": "(15,984,087)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -8521873.0,
+            "raw_value": "(8,521,873)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Increase in minority interest",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Increase in minority interest 1,454,623 666,553",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 1454623.0,
+            "raw_value": "1,454,623",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 666553.0,
+            "raw_value": "666,553",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Proceeds from issue of equity shares under preferential allotment",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Proceeds from issue of equity shares under preferential allotment 84,999,999 -",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 84999999.0,
+            "raw_value": "84,999,999",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Proceeds from issue of shares under Qualified Institutions Placement and American Depository Receipt offering (net of issue expenses)",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Proceeds from issue of shares under Qualified Institutions Placement and American Depository Receipt offering (net of issue expenses) 150,896,153 -",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 150896153.0,
+            "raw_value": "150,896,153",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Money received on exercise of stock options by employees",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Money received on exercise of stock options by employees 22,008,150 27,259,098",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 22008150.0,
+            "raw_value": "22,008,150",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 27259098.0,
+            "raw_value": "27,259,098",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Increase / (decrease) in borrowings (excluding subordinate debt, perpetual debt and upper Tier II instruments)",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Increase / (decrease) in borrowings (excluding subordinate debt, perpetual debt and upper Tier II instruments) 32,656,942 498,214,409",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 32656942.0,
+            "raw_value": "32,656,942",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 498214409.0,
+            "raw_value": "498,214,409",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Proceeds from issue of Additional Tier I and Tier II Capital Bonds",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Proceeds from issue of Additional Tier I and Tier II Capital Bonds 9,000,000 102,800,000",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 9000000.0,
+            "raw_value": "9,000,000",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 102800000.0,
+            "raw_value": "102,800,000",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Redemption of subordinated debt",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Redemption of subordinated debt (28,750,000) (20,750,000)",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -28750000.0,
+            "raw_value": "(28,750,000)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -20750000.0,
+            "raw_value": "(20,750,000)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Dividend paid during the year",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Dividend paid during the year (33,842,896) (28,312,716)",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -33842896.0,
+            "raw_value": "(33,842,896)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -28312716.0,
+            "raw_value": "(28,312,716)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Tax on dividend paid during the year",
+        "section": "Cash flows from financing activities",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Tax on dividend paid during the year (7,116,039) (6,100,741)",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -7116039.0,
+            "raw_value": "(7,116,039)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": -6100741.0,
+            "raw_value": "(6,100,741)",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Net cash flow from financing activities",
+        "section": "Cash flows from financing activities",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Net cash flow from financing activities 231,306,932 573,776,603",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 231306932.0,
+            "raw_value": "231,306,932",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 573776603.0,
+            "raw_value": "573,776,603",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Effect of exchange fluctuation on translation reserve",
+        "section": "Cash flows from financing activities",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Effect of exchange fluctuation on translation reserve 953,463 105,872",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 953463.0,
+            "raw_value": "953,463",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 105872.0,
+            "raw_value": "105,872",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Net increase / (decrease) in cash and cash equivalents",
+        "section": "Cash and cash equivalents",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Net increase / (decrease) in cash and cash equivalents (412,439,139) 737,504,366",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": -412439139.0,
+            "raw_value": "(412,439,139)",
+            "confidence": 0.9
+          },
+          "Year ended 31-Mar-18": {
+            "value": 737504366.0,
+            "raw_value": "737,504,366",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Cash and cash equivalents as at April 1st, 2018",
+        "section": "Cash and cash equivalents",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Cash and cash equivalents as at April 1st, 2018 1,230,615,562 493,111,196",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 1230615562.0,
+            "raw_value": "1,230,615,562",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 493111196.0,
+            "raw_value": "493,111,196",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Cash and cash equivalents as at March 31st, 2019",
+        "section": "Cash and cash equivalents",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Cash and cash equivalents as at March 31st, 2019 818,176,423 1,230,615,562",
+          "page_number": 2
+        },
+        "values": {
+          "Year ended 31-Mar-19": {
+            "value": 818176423.0,
+            "raw_value": "818,176,423",
+            "confidence": 0.7
+          },
+          "Year ended 31-Mar-18": {
+            "value": 1230615562.0,
+            "raw_value": "1,230,615,562",
+            "confidence": 0.7
+          }
+        }
+      }
+    ],
+    "key_figures": {
+      "Year ended 31-Mar-19": {
+        "operating_cash_flow": {
+          "value": -628715447.0,
+          "source_label": "Net cash flow (used in) / from operating activities",
+          "page_number": 1
+        },
+        "investing_cash_flow": {
+          "value": -15984087.0,
+          "source_label": "Net cash flow used in investing activities",
+          "page_number": 1
+        },
+        "financing_cash_flow": {
+          "value": 231306932.0,
+          "source_label": "Net cash flow from financing activities",
+          "page_number": 2
+        },
+        "net_change_in_cash": {
+          "value": -412439139.0,
+          "source_label": "Net increase / (decrease) in cash and cash equivalents",
+          "page_number": 2
+        },
+        "opening_cash": {
+          "value": 1230615562.0,
+          "source_label": "Cash and cash equivalents as at April 1st, 2018",
+          "page_number": 2
+        },
+        "closing_cash": {
+          "value": 818176423.0,
+          "source_label": "Cash and cash equivalents as at March 31st, 2019",
+          "page_number": 2
+        }
+      },
+      "Year ended 31-Mar-18": {
+        "operating_cash_flow": {
+          "value": 172143764.0,
+          "source_label": "Net cash flow (used in) / from operating activities",
+          "page_number": 1
+        },
+        "investing_cash_flow": {
+          "value": -8521873.0,
+          "source_label": "Net cash flow used in investing activities",
+          "page_number": 1
+        },
+        "financing_cash_flow": {
+          "value": 573776603.0,
+          "source_label": "Net cash flow from financing activities",
+          "page_number": 2
+        },
+        "net_change_in_cash": {
+          "value": 737504366.0,
+          "source_label": "Net increase / (decrease) in cash and cash equivalents",
+          "page_number": 2
+        },
+        "opening_cash": {
+          "value": 493111196.0,
+          "source_label": "Cash and cash equivalents as at April 1st, 2018",
+          "page_number": 2
+        },
+        "closing_cash": {
+          "value": 1230615562.0,
+          "source_label": "Cash and cash equivalents as at March 31st, 2019",
+          "page_number": 2
+        }
+      }
+    },
+    "header_fields": [
+      {
+        "label": "Page number",
+        "value": 188.0,
+        "raw_value": "188",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "188",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Report reference",
+        "value": "HDFC Bank Limited Annual Report 2018 - 2019",
+        "raw_value": "HDFC Bank Limited Annual Report 2018 - 2019",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "HDFC Bank Limited Annual Report 2018 - 2019",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor reference",
+        "value": "As per our report of even date.",
+        "raw_value": "As per our report of even date.",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "As per our report of even date.",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Auditor",
+        "value": "For S. R. BATLIBOI & CO. LLP",
+        "raw_value": "For S. R. BATLIBOI & CO. LLP",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "For S. R. BATLIBOI & CO. LLP",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Auditor designation",
+        "value": "Chartered Accountants",
+        "raw_value": "Chartered Accountants",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Chartered Accountants",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Firm Registration No.",
+        "value": "301003E/E300005",
+        "raw_value": "301003E/E300005",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Firm Registration No. 301003E/E300005",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "per",
+        "value": "per Sudhir Soni",
+        "raw_value": "per Sudhir Soni",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "per Sudhir Soni",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Partner",
+        "value": "Partner",
+        "raw_value": "Partner",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Partner",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Membership No.",
+        "value": 41870.0,
+        "raw_value": "41870",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Membership No.: 41870",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Place and date",
+        "value": "Mumbai, April 20, 2019",
+        "raw_value": "Mumbai, April 20, 2019",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Mumbai, April 20, 2019",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "For and on behalf of the Board",
+        "raw_value": "For and on behalf of the Board",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "For and on behalf of the Board",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Chairperson",
+        "value": "Shyamala Gopinath",
+        "raw_value": "Shyamala Gopinath",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Shyamala Gopinath / Chairperson",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Managing Director",
+        "value": "Aditya Puri",
+        "raw_value": "Aditya Puri",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Aditya Puri / Managing Director",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Executive Director",
+        "value": "Kaizad Bharucha",
+        "raw_value": "Kaizad Bharucha",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Kaizad Bharucha / Executive Director",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Vice President (Legal) & Company Secretary",
+        "value": "Santosh Haldankar",
+        "raw_value": "Santosh Haldankar",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Santosh Haldankar / Vice President (Legal) & Company Secretary",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Chief Financial Officer",
+        "value": "Sashidhar Jagdishan",
+        "raw_value": "Sashidhar Jagdishan",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Sashidhar Jagdishan / Chief Financial Officer",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Directors",
+        "value": "Keki Mistry, Malay Patel, Umesh Sarangi, Sanjiv Sachar, Sandeep Parekh, M D Ranganath",
+        "raw_value": "Keki Mistry, Malay Patel, Umesh Sarangi, Sanjiv Sachar, Sandeep Parekh, M D Ranganath",
+        "confidence": 0.7,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "Keki Mistry Malay Patel Umesh Sarangi Sanjiv Sachar Sandeep Parekh M D Ranganath Directors",
+          "page_number": 2
+        }
+      },
+      {
+        "label": "Page number",
+        "value": 189.0,
+        "raw_value": "189",
+        "confidence": 0.9,
+        "page_number": 2,
+        "evidence": {
+          "source_text": "189",
+          "page_number": 2
+        }
+      }
+    ],
+    "missing_fields": []
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "net_change_in_cash_check",
+        "description": "Operating, investing and financing cash flows plus any translation adjustment equal the net increase in cash.",
+        "formula": "net_cash_operating + net_cash_investing + net_cash_financing + fx_adjustment",
+        "period": "Year ended 31-Mar-19",
+        "operands": {
+          "net_cash_operating": -628715447.0,
+          "net_cash_investing": -15984087.0,
+          "net_cash_financing": 231306932.0,
+          "fx_adjustment": 953463.0
+        },
+        "calculated_value": -412439139.0,
+        "reported_value": -412439139.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "closing_cash_check",
+        "description": "Opening cash plus the net increase, plus any cash acquired on amalgamation, equals closing cash.",
+        "formula": "opening_cash + net_increase_in_cash + cash_acquired_on_amalgamation",
+        "period": "Year ended 31-Mar-19",
+        "operands": {
+          "opening_cash": 1230615562.0,
+          "net_increase_in_cash": -412439139.0,
+          "cash_acquired_on_amalgamation": null
+        },
+        "calculated_value": 818176423.0,
+        "reported_value": 818176423.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_change_in_cash_check",
+        "description": "Operating, investing and financing cash flows plus any translation adjustment equal the net increase in cash.",
+        "formula": "net_cash_operating + net_cash_investing + net_cash_financing + fx_adjustment",
+        "period": "Year ended 31-Mar-18",
+        "operands": {
+          "net_cash_operating": 172143764.0,
+          "net_cash_investing": -8521873.0,
+          "net_cash_financing": 573776603.0,
+          "fx_adjustment": 105872.0
+        },
+        "calculated_value": 737504366.0,
+        "reported_value": 737504366.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "closing_cash_check",
+        "description": "Opening cash plus the net increase, plus any cash acquired on amalgamation, equals closing cash.",
+        "formula": "opening_cash + net_increase_in_cash + cash_acquired_on_amalgamation",
+        "period": "Year ended 31-Mar-18",
+        "operands": {
+          "opening_cash": 493111196.0,
+          "net_increase_in_cash": 737504366.0,
+          "cash_acquired_on_amalgamation": null
+        },
+        "calculated_value": 1230615562.0,
+        "reported_value": 1230615562.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "extraction_method": "vision_llm",
+    "model": "claude-opus-5",
+    "pages_processed": 2,
+    "processed_at": "2026-09-11T05:04:45.826784Z",
+    "processing_time_ms": 61572
+  }
+}

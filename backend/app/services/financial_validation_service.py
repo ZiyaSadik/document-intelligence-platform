@@ -16,6 +16,7 @@ Two rules govern the whole module:
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from typing import Callable
 
@@ -165,6 +166,17 @@ class FinancialValidationService:
         subtotal = money("subtotal")
         tax = money("tax_amount")
         discount = money("discount")
+
+        # Indian GST invoices split the tax across CGST and SGST (or IGST)
+        # lines and never print a combined "Tax" figure, so there is nothing
+        # for the model to report under tax_amount. Recover it by adding up the
+        # components the document *does* print - deterministically, and with
+        # each component surfaced as its own operand so the sum is auditable.
+        tax_components: Operands = {}
+        if tax is None:
+            tax_components = _tax_components(data)
+            if tax_components:
+                tax = round(sum(v for v in tax_components.values() if v is not None), 6)
         rounding = money("rounding_adjustment")
         total = money("total_amount")
         cash = money("cash_paid")
@@ -196,11 +208,22 @@ class FinancialValidationService:
                 )
             )
 
-        # 2. Line totals should reconcile to the reported subtotal (or, when no
-        #    subtotal is printed, to the total - common on retail receipts).
+        # 2. Line totals should reconcile to the reported subtotal.
+        #
+        #    Where no subtotal is printed - common on till receipts - the total
+        #    is only a valid comparison when no tax was added on top of it.
+        #    Otherwise this would compare net line amounts against a
+        #    tax-inclusive total and fail by exactly the tax, which says
+        #    nothing about the document. The relationship is already covered by
+        #    invoice_total_check, which uses the line sum as its taxable base.
         line_amounts = [parse_money(item.amount) for item in data.line_items]
         line_sum = safe_sum(line_amounts) if line_amounts else None
-        reported_for_lines = subtotal if subtotal is not None else total
+        if subtotal is not None:
+            reported_for_lines = subtotal
+        elif not tax:
+            reported_for_lines = total
+        else:
+            reported_for_lines = None
         checks.append(
             self._check(
                 name="line_items_subtotal_check",
@@ -255,6 +278,13 @@ class FinancialValidationService:
             operands = {base_name: base, "tax_amount": tax, "discount": discount}
             formula = f"{base_name} + tax_amount - discount (+ rounding)"
             note = "Tax is added on top of the taxable amount."
+            if tax_components:
+                operands.update(tax_components)
+                note += (
+                    " The document prints no combined tax line, so tax_amount "
+                    "is the sum of the "
+                    + ", ".join(tax_components) + " components shown."
+                )
         if rounding is not None:
             operands["rounding_adjustment"] = rounding
 
@@ -623,6 +653,38 @@ class FinancialValidationService:
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+#: Labels that carry a component of the tax charge.
+_TAX_COMPONENT = re.compile(
+    r"\b(?:c|s|i|ut)?gst\b|\bvat\b|\bcess\b|\bservice tax\b|\bsales tax\b"
+)
+#: Labels that merely *mention* a tax scheme - registration numbers, mostly.
+#: "GSTIN/UIN" parses as a number and would otherwise be summed as a charge.
+_NOT_A_TAX_AMOUNT = ("gstin", "uin", "registration", "reg no", "tin no", "number")
+
+
+def _tax_components(data: InvoiceExtraction) -> Operands:
+    """Tax charges found among the document's other labelled values.
+
+    Only used when no combined tax line was reported. Returns an empty mapping
+    when nothing qualifies, so the check stays NOT_APPLICABLE rather than
+    inventing a zero.
+    """
+    components: Operands = {}
+    for entry in data.additional_fields:
+        label = normalise_label(entry.label)
+        if not label or not _TAX_COMPONENT.search(label):
+            continue
+        if any(token in label for token in _NOT_A_TAX_AMOUNT):
+            continue
+        value = parse_money(entry.raw_value)
+        if value is None:
+            continue
+        # A duplicate label would silently double the charge.
+        components.setdefault(entry.label.strip()[:40], value)
+    return components
+
+
+
 def _implied_periods(items: list[StatementLineItem]) -> list[str]:
     """Recover period labels from the cells when the header list is missing."""
     seen: list[str] = []

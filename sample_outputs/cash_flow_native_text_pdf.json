@@ -1,0 +1,1206 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2022.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "overall_confidence": 0.98,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "entity_name": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "statement_title": {
+      "value": "Consolidated Cash Flow Statement",
+      "raw_value": "Consolidated Cash Flow Statement",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Cash Flow Statement",
+        "page_number": 1
+      }
+    },
+    "currency": {
+      "value": "`",
+      "raw_value": "`",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "` in crore",
+        "page_number": 1
+      }
+    },
+    "units": {
+      "value": "in crore",
+      "raw_value": "in crore",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "` in crore",
+        "page_number": 1
+      }
+    },
+    "periods": [
+      {
+        "label": "Year ended March 31, 2022",
+        "period_end_date": "2022-03-31"
+      },
+      {
+        "label": "Year ended March 31, 2021",
+        "period_end_date": "2021-03-31"
+      }
+    ],
+    "line_items": [
+      {
+        "label": "Consolidated profit before income tax",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated profit before income tax 50,775.24 42,772.58",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 50775.24,
+            "raw_value": "50,775.24",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 42772.58,
+            "raw_value": "42,772.58",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Adjustments for:",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Adjustments for:",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          },
+          "Year ended March 31, 2021": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          }
+        }
+      },
+      {
+        "label": "Depreciation on fixed assets",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Depreciation on fixed assets 1,680.73 1,385.01",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 1680.73,
+            "raw_value": "1,680.73",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 1385.01,
+            "raw_value": "1,385.01",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "(Profit) / loss on revaluation of investments",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on revaluation of investments (1,546.40) 1,485.32",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -1546.4,
+            "raw_value": "(1,546.40)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 1485.32,
+            "raw_value": "1,485.32",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Amortisation of premium on held to maturity investments",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Amortisation of premium on held to maturity investments 821.32 765.47",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 821.32,
+            "raw_value": "821.32",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 765.47,
+            "raw_value": "765.47",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "(Profit) / loss on sale of fixed assets",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Profit) / loss on sale of fixed assets 3.25 0.29",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 3.25,
+            "raw_value": "3.25",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 0.29,
+            "raw_value": "0.29",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Provision / charge for non performing assets",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision / charge for non performing assets 13,286.95 13,927.01",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 13286.95,
+            "raw_value": "13,286.95",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 13927.01,
+            "raw_value": "13,927.01",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Provision for standard assets and contingencies",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provision for standard assets and contingencies 5,418.21 5,283.07",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 5418.21,
+            "raw_value": "5,418.21",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 5283.07,
+            "raw_value": "5,283.07",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Employee Stock Options Expense",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Employee Stock Options Expense 341.24 -",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 341.24,
+            "raw_value": "341.24",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.85
+          }
+        }
+      },
+      {
+        "label": "",
+        "section": "Cash flows from operating activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "70,780.55 65,618.75",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 70780.55,
+            "raw_value": "70,780.55",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 65618.75,
+            "raw_value": "65,618.75",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Adjustments for:",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Adjustments for:",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          },
+          "Year ended March 31, 2021": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          }
+        }
+      },
+      {
+        "label": "Increase in investments",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in investments (10,849.22) (50,156.64)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -10849.22,
+            "raw_value": "(10,849.22)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -50156.64,
+            "raw_value": "(50,156.64)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Increase in advances",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in advances (248,946.13) (155,681.07)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -248946.13,
+            "raw_value": "(248,946.13)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -155681.07,
+            "raw_value": "(155,681.07)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Increase in deposits",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in deposits 224,282.15 187,513.74",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 224282.15,
+            "raw_value": "224,282.15",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 187513.74,
+            "raw_value": "187,513.74",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "(Increase) / decrease in other assets",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "(Increase) / decrease in other assets (40,044.70) 8,307.68",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -40044.7,
+            "raw_value": "(40,044.70)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 8307.68,
+            "raw_value": "8,307.68",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Increase / (decrease) in other liabilities and provisions",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase / (decrease) in other liabilities and provisions 7,655.94 (104.56)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 7655.94,
+            "raw_value": "7,655.94",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -104.56,
+            "raw_value": "(104.56)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "",
+        "section": "Cash flows from operating activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "2,878.59 55,497.90",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 2878.59,
+            "raw_value": "2,878.59",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 55497.9,
+            "raw_value": "55,497.90",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Direct taxes paid (net of refunds)",
+        "section": "Cash flows from operating activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Direct taxes paid (net of refunds) (14,838.16) (13,021.45)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -14838.16,
+            "raw_value": "(14,838.16)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -13021.45,
+            "raw_value": "(13,021.45)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Net cash flow (used in) / from operating activities",
+        "section": "Cash flows from operating activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow (used in) / from operating activities (11,959.57) 42,476.45",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -11959.57,
+            "raw_value": "(11,959.57)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 42476.45,
+            "raw_value": "42,476.45",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Purchase of fixed assets",
+        "section": "Cash flows from investing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Purchase of fixed assets (2,236.24) (1,696.15)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -2236.24,
+            "raw_value": "(2,236.24)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -1696.15,
+            "raw_value": "(1,696.15)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Proceeds from sale of fixed assets",
+        "section": "Cash flows from investing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from sale of fixed assets 19.91 15.28",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 19.91,
+            "raw_value": "19.91",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 15.28,
+            "raw_value": "15.28",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Net cash flow used in investing activities",
+        "section": "Cash flows from investing activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow used in investing activities (2,216.33) (1,680.87)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -2216.33,
+            "raw_value": "(2,216.33)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -1680.87,
+            "raw_value": "(1,680.87)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Increase in minority interest",
+        "section": "Cash flows from financing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Increase in minority interest 135.83 56.12",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 135.83,
+            "raw_value": "135.83",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 56.12,
+            "raw_value": "56.12",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Proceeds from issue of share capital, net of issue expenses",
+        "section": "Cash flows from financing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from issue of share capital, net of issue expenses 2,609.76 1,760.10",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 2609.76,
+            "raw_value": "2,609.76",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 1760.1,
+            "raw_value": "1,760.10",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Proceeds from issue of Additional Tier I and Tier II capital bonds",
+        "section": "Cash flows from financing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Proceeds from issue of Additional Tier I and Tier II capital bonds 8,312.75 356.50",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 8312.75,
+            "raw_value": "8,312.75",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 356.5,
+            "raw_value": "356.50",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Redemption of Tier II capital bonds",
+        "section": "Cash flows from financing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Redemption of Tier II capital bonds (3,650.00) (1,105.00)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -3650.0,
+            "raw_value": "(3,650.00)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -1105.0,
+            "raw_value": "(1,105.00)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Net proceeds / (repayments) in other borrowings",
+        "section": "Cash flows from financing activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net proceeds / (repayments) in other borrowings 44,308.08 (8,389.07)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 44308.08,
+            "raw_value": "44,308.08",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -8389.07,
+            "raw_value": "(8,389.07)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Dividend paid during the year",
+        "section": "Cash flows from financing activities:",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Dividend paid during the year (3,592.40) -",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -3592.4,
+            "raw_value": "(3,592.40)",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.85
+          }
+        }
+      },
+      {
+        "label": "Net cash flow from / (used in) financing activities",
+        "section": "Cash flows from financing activities:",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net cash flow from / (used in) financing activities 48,124.02 (7,321.35)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 48124.02,
+            "raw_value": "48,124.02",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -7321.35,
+            "raw_value": "(7,321.35)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Effect of exchange fluctuation on translation reserve",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Effect of exchange fluctuation on translation reserve 165.10 (141.83)",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 165.1,
+            "raw_value": "165.10",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": -141.83,
+            "raw_value": "(141.83)",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Net increase in cash and cash equivalents",
+        "section": null,
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Net increase in cash and cash equivalents 34,113.22 33,332.40",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 34113.22,
+            "raw_value": "34,113.22",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 33332.4,
+            "raw_value": "33,332.40",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Cash and cash equivalents as at April 1st",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash and cash equivalents as at April 1st 121,272.51 87,940.11",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 121272.51,
+            "raw_value": "121,272.51",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 87940.11,
+            "raw_value": "87,940.11",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Cash and cash equivalents as at March 31st",
+        "section": null,
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash and cash equivalents as at March 31st 155,385.73 121,272.51",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 155385.73,
+            "raw_value": "155,385.73",
+            "confidence": 0.99
+          },
+          "Year ended March 31, 2021": {
+            "value": 121272.51,
+            "raw_value": "121,272.51",
+            "confidence": 0.99
+          }
+        }
+      }
+    ],
+    "key_figures": {
+      "Year ended March 31, 2022": {
+        "operating_cash_flow": {
+          "value": -11959.57,
+          "source_label": "Net cash flow (used in) / from operating activities",
+          "page_number": 1
+        },
+        "investing_cash_flow": {
+          "value": -2216.33,
+          "source_label": "Net cash flow used in investing activities",
+          "page_number": 1
+        },
+        "financing_cash_flow": {
+          "value": 48124.02,
+          "source_label": "Net cash flow from / (used in) financing activities",
+          "page_number": 1
+        },
+        "net_change_in_cash": {
+          "value": 34113.22,
+          "source_label": "Net increase in cash and cash equivalents",
+          "page_number": 1
+        },
+        "opening_cash": {
+          "value": 121272.51,
+          "source_label": "Cash and cash equivalents as at April 1st",
+          "page_number": 1
+        },
+        "closing_cash": {
+          "value": 155385.73,
+          "source_label": "Cash and cash equivalents as at March 31st",
+          "page_number": 1
+        }
+      },
+      "Year ended March 31, 2021": {
+        "operating_cash_flow": {
+          "value": 42476.45,
+          "source_label": "Net cash flow (used in) / from operating activities",
+          "page_number": 1
+        },
+        "investing_cash_flow": {
+          "value": -1680.87,
+          "source_label": "Net cash flow used in investing activities",
+          "page_number": 1
+        },
+        "financing_cash_flow": {
+          "value": -7321.35,
+          "source_label": "Net cash flow from / (used in) financing activities",
+          "page_number": 1
+        },
+        "net_change_in_cash": {
+          "value": 33332.4,
+          "source_label": "Net increase in cash and cash equivalents",
+          "page_number": 1
+        },
+        "opening_cash": {
+          "value": 87940.11,
+          "source_label": "Cash and cash equivalents as at April 1st",
+          "page_number": 1
+        },
+        "closing_cash": {
+          "value": 121272.51,
+          "source_label": "Cash and cash equivalents as at March 31st",
+          "page_number": 1
+        }
+      }
+    },
+    "header_fields": [
+      {
+        "label": "For the year ended",
+        "value": "For the year ended March 31, 2022",
+        "raw_value": "For the year ended March 31, 2022",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For the year ended March 31, 2022",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "As per our report of even date",
+        "value": "For and on behalf of the Board",
+        "raw_value": "For and on behalf of the Board",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "As per our report of even date For and on behalf of the Board",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor 1",
+        "value": "For MSKA & Associates, Chartered Accountants",
+        "raw_value": "For MSKA & Associates, Chartered Accountants",
+        "confidence": 0.85,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For MSKA & Associates For M M Nissim & Co LLP Atanu Chakraborty Umesh Chandra Sarangi",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor 2",
+        "value": "For M M Nissim & Co LLP, Chartered Accountants",
+        "raw_value": "For M M Nissim & Co LLP, Chartered Accountants",
+        "confidence": 0.85,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For MSKA & Associates For M M Nissim & Co LLP Atanu Chakraborty Umesh Chandra Sarangi",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "ICAI Firm Registration Number",
+        "value": "105047W",
+        "raw_value": "105047W",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "105047W 107122W/W100672 M. D. Ranganath Malay Patel",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "ICAI Firm Registration Number",
+        "value": "107122W/W100672",
+        "raw_value": "107122W/W100672",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "105047W 107122W/W100672 M. D. Ranganath Malay Patel",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Partner",
+        "value": "Swapnil Kale",
+        "raw_value": "Swapnil Kale",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Swapnil Kale Sanjay Khemani Lily Vadera Sashidhar Jagdishan",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Partner",
+        "value": "Sanjay Khemani",
+        "raw_value": "Sanjay Khemani",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Swapnil Kale Sanjay Khemani Lily Vadera Sashidhar Jagdishan",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Membership Number",
+        "value": 117812.0,
+        "raw_value": "117812",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Membership Number: 117812 Membership Number: 044577",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Membership Number",
+        "value": 44577.0,
+        "raw_value": "044577",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Membership Number: 117812 Membership Number: 044577",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Part Time Chairman of the Board",
+        "value": "Atanu Chakraborty",
+        "raw_value": "Atanu Chakraborty",
+        "confidence": 0.85,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Chartered Accountants Chartered Accountants Part Time Chairman of the Board Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Umesh Chandra Sarangi",
+        "raw_value": "Umesh Chandra Sarangi",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For MSKA & Associates For M M Nissim & Co LLP Atanu Chakraborty Umesh Chandra Sarangi",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "M. D. Ranganath",
+        "raw_value": "M. D. Ranganath",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "105047W 107122W/W100672 M. D. Ranganath Malay Patel",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Malay Patel",
+        "raw_value": "Malay Patel",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "105047W 107122W/W100672 M. D. Ranganath Malay Patel",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Lily Vadera",
+        "raw_value": "Lily Vadera",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Swapnil Kale Sanjay Khemani Lily Vadera Sashidhar Jagdishan",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Managing Director & CEO",
+        "value": "Sashidhar Jagdishan",
+        "raw_value": "Sashidhar Jagdishan",
+        "confidence": 0.85,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Partner Partner Independent Director Managing Director & CEO",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Executive Director",
+        "value": "Kaizad Bharucha",
+        "raw_value": "Kaizad Bharucha",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Kaizad Bharucha Srinivasan Vaidyanathan",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Chief Financial Officer",
+        "value": "Srinivasan Vaidyanathan",
+        "raw_value": "Srinivasan Vaidyanathan",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Kaizad Bharucha Srinivasan Vaidyanathan",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Company Secretary",
+        "value": "Santosh Haldankar",
+        "raw_value": "Santosh Haldankar",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Santosh Haldankar",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Place and date",
+        "value": "Mumbai, April 16, 2022",
+        "raw_value": "Mumbai, April 16, 2022",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Mumbai, April 16, 2022 Company Secretary",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Page number",
+        "value": 310.0,
+        "raw_value": "310",
+        "confidence": 0.99,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "310",
+          "page_number": 1
+        }
+      }
+    ],
+    "missing_fields": [
+      "entity_name"
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "net_change_in_cash_check",
+        "description": "Operating, investing and financing cash flows plus any translation adjustment equal the net increase in cash.",
+        "formula": "net_cash_operating + net_cash_investing + net_cash_financing + fx_adjustment",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "net_cash_operating": -11959.57,
+          "net_cash_investing": -2216.33,
+          "net_cash_financing": 48124.02,
+          "fx_adjustment": 165.1
+        },
+        "calculated_value": 34113.22,
+        "reported_value": 34113.22,
+        "variance": -0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "closing_cash_check",
+        "description": "Opening cash plus the net increase, plus any cash acquired on amalgamation, equals closing cash.",
+        "formula": "opening_cash + net_increase_in_cash + cash_acquired_on_amalgamation",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "opening_cash": 121272.51,
+          "net_increase_in_cash": 34113.22,
+          "cash_acquired_on_amalgamation": null
+        },
+        "calculated_value": 155385.73,
+        "reported_value": 155385.73,
+        "variance": -0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_change_in_cash_check",
+        "description": "Operating, investing and financing cash flows plus any translation adjustment equal the net increase in cash.",
+        "formula": "net_cash_operating + net_cash_investing + net_cash_financing + fx_adjustment",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "net_cash_operating": 42476.45,
+          "net_cash_investing": -1680.87,
+          "net_cash_financing": -7321.35,
+          "fx_adjustment": -141.83
+        },
+        "calculated_value": 33332.4,
+        "reported_value": 33332.4,
+        "variance": -0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "closing_cash_check",
+        "description": "Opening cash plus the net increase, plus any cash acquired on amalgamation, equals closing cash.",
+        "formula": "opening_cash + net_increase_in_cash + cash_acquired_on_amalgamation",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "opening_cash": 87940.11,
+          "net_increase_in_cash": 33332.4,
+          "cash_acquired_on_amalgamation": null
+        },
+        "calculated_value": 121272.51,
+        "reported_value": 121272.51,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "extraction_method": "native_text_layer",
+    "model": "claude-opus-5",
+    "pages_processed": 1,
+    "processed_at": "2026-09-11T05:03:44.232136Z",
+    "processing_time_ms": 48883
+  }
+}

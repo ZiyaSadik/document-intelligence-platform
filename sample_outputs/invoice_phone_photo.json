@@ -1,0 +1,893 @@
+{
+  "document_name": "20251118_000612.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "overall_confidence": 0.901,
+  "file_validation": {
+    "file_type": "image/jpeg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "invoice_number": {
+      "value": "SCI/25-26/3331",
+      "raw_value": "SCI/25-26/3331",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Invoice No. SCI/25-26/3331",
+        "page_number": 1
+      }
+    },
+    "invoice_date": {
+      "value": "16-Jul-25",
+      "raw_value": "16-Jul-25",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Dated 16-Jul-25",
+        "page_number": 1
+      }
+    },
+    "due_date": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "purchase_order_number": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "vendor_name": {
+      "value": "Shankar Enterprises-(2023-24)",
+      "raw_value": "Shankar Enterprises-(2023-24)",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Shankar Enterprises-(2023-24)",
+        "page_number": 1
+      }
+    },
+    "vendor_address": {
+      "value": "12B, SHIB DEY LANE KOLKATA-700087 (W.B)",
+      "raw_value": "12B, SHIB DEY LANE KOLKATA-700087 (W.B)",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "12B, SHIB DEY LANE KOLKATA-700087 (W.B)",
+        "page_number": 1
+      }
+    },
+    "vendor_tax_id": {
+      "value": "19BFJPK5651N1ZS",
+      "raw_value": "19BFJPK5651N1ZS",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "GSTIN/UIN : 19BFJPK5651N1ZS",
+        "page_number": 1
+      }
+    },
+    "vendor_contact": {
+      "value": "7003424253,9231883650",
+      "raw_value": "7003424253,9231883650",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Contact : 7003424253,9231883650",
+        "page_number": 1
+      }
+    },
+    "customer_name": {
+      "value": "Laxmi Narayan Bhandar 2",
+      "raw_value": "Laxmi Narayan Bhandar 2",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Buyer (Bill to) Laxmi Narayan Bhandar 2",
+        "page_number": 1
+      }
+    },
+    "customer_address": {
+      "value": "7/8f Abhinesh Choudhry Lane",
+      "raw_value": "7/8f Abhinesh Choudhry Lane",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "7/8f Abhinesh Choudhry Lane",
+        "page_number": 1
+      }
+    },
+    "currency": {
+      "value": "₹",
+      "raw_value": "₹",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ 6,862.00",
+        "page_number": 1
+      }
+    },
+    "tax_rate": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "payment_method": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "subtotal": {
+      "value": 5815.17,
+      "raw_value": "5,815.17",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "5,815.17",
+        "page_number": 1
+      }
+    },
+    "discount": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "tax_amount": {
+      "value": 1046.72,
+      "raw_value": "1,046.72",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total: 5,815.17 523.36 523.36 1,046.72",
+        "page_number": 1
+      }
+    },
+    "rounding_adjustment": {
+      "value": 0.11,
+      "raw_value": "0.11",
+      "confidence": 0.99,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Round Off 0.11",
+        "page_number": 1
+      }
+    },
+    "total_amount": {
+      "value": 6862.0,
+      "raw_value": "₹ 6,862.00",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Total 218 PCS ₹ 6,862.00",
+        "page_number": 1
+      }
+    },
+    "cash_paid": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "change": {
+      "value": null,
+      "raw_value": null,
+      "confidence": null,
+      "page_number": null,
+      "evidence": null
+    },
+    "tax_inclusive": true,
+    "line_items": [
+      {
+        "description": "SAFED 800GM  (24PKT)  68/-",
+        "quantity": null,
+        "unit_price": 52.08,
+        "amount": 2499.84,
+        "raw": {
+          "quantity": "48 PCS",
+          "unit_price": "52.08",
+          "amount": "2,499.84"
+        },
+        "page_number": 1
+      },
+      {
+        "description": "SAFED WHITE DP 140GM 60PCS Twin Pack 10/-",
+        "quantity": null,
+        "unit_price": 7.44,
+        "amount": 0.45,
+        "raw": {
+          "quantity": "6 PCS",
+          "unit_price": "7.44",
+          "amount": "0.45"
+        },
+        "page_number": 1
+      },
+      {
+        "description": "SAFED 2 KG (12 PKT) PRINTED BUCKET+LID 230/-",
+        "quantity": null,
+        "unit_price": 172.05,
+        "amount": 2064.6,
+        "raw": {
+          "quantity": "12 PCS",
+          "unit_price": "172.05",
+          "amount": "2,064.60"
+        },
+        "page_number": 1
+      },
+      {
+        "description": "SAFED WHITE DP 140GM 60PCS Twin Pack 10/-",
+        "quantity": null,
+        "unit_price": 7.44,
+        "amount": 892.8,
+        "raw": {
+          "quantity": "120 PCS",
+          "unit_price": "7.44",
+          "amount": "892.80"
+        },
+        "page_number": 1
+      },
+      {
+        "description": "SAFED WHITE DP 140GM 60PCS Twin Pack 10/-",
+        "quantity": null,
+        "unit_price": 7.44,
+        "amount": 0.6,
+        "raw": {
+          "quantity": "8 PCS",
+          "unit_price": "7.44",
+          "amount": "0.60"
+        },
+        "page_number": 1
+      },
+      {
+        "description": "SPARKLE 200 GM BATI 48PCS (9.6 KG) WITH SCRUB PAD 20/-",
+        "quantity": null,
+        "unit_price": 14.87,
+        "amount": 356.88,
+        "raw": {
+          "quantity": "24 PCS",
+          "unit_price": "14.87",
+          "amount": "356.88"
+        },
+        "page_number": 1
+      }
+    ],
+    "additional_fields": [
+      {
+        "label": "Printed on",
+        "value": "16-Jul-25 at 18:39",
+        "raw_value": "16-Jul-25 at 18:39",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Printed on 16-Jul-25 at 18:39",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "D.L.No.",
+        "value": "WB/KOL/NBO/W/687641",
+        "raw_value": "WB/KOL/NBO/W/687641",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "D.L.No. WB/KOL/NBO/W/687641",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "State Name",
+        "value": "West Bengal, Code : 19",
+        "raw_value": "West Bengal, Code : 19",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "State Name : West Bengal, Code : 19",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "E-Mail",
+        "value": "shankarenterprises9231@gmail.com",
+        "raw_value": "shankarenterprises9231@gmail.com",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "E-Mail : shankarenterprises9231@gmail.com",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Consignee (Ship to)",
+        "value": "Laxmi Narayan Bhandar 2, 7/8f Abhinesh Choudhry Lane",
+        "raw_value": "Laxmi Narayan Bhandar 2, 7/8f Abhinesh Choudhry Lane",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consignee (Ship to) Laxmi Narayan Bhandar 2 7/8f Abhinesh Choudhry Lane",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "GSTIN/UIN",
+        "value": "19CPQPS9464F1ZX",
+        "raw_value": "19CPQPS9464F1ZX",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "GSTIN/UIN : 19CPQPS9464F1ZX",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "State Name",
+        "value": "West Bengal, Code : 19",
+        "raw_value": "West Bengal, Code : 19",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "State Name : West Bengal, Code : 19",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Contact",
+        "value": 9831715156.0,
+        "raw_value": "9831715156",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Contact : 9831715156",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Sales Man",
+        "value": "SUJIT(9007785327)",
+        "raw_value": "SUJIT(9007785327)",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sales Man SUJIT(9007785327)",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Market",
+        "value": "Area LOHAPOOL",
+        "raw_value": "Area LOHAPOOL",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Market Area LOHAPOOL",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "SGST@9%",
+        "value": 523.36,
+        "raw_value": "523.36",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "SGST@9% 9 % 523.36",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "CGST@9%",
+        "value": 523.36,
+        "raw_value": "523.36",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "CGST@9% 9 % 523.36",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Total Quantity",
+        "value": "218 PCS",
+        "raw_value": "218 PCS",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 218 PCS ₹ 6,862.00",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Amount Chargeable (in words)",
+        "value": "INR Six Thousand Eight Hundred Sixty Two Only",
+        "raw_value": "INR Six Thousand Eight Hundred Sixty Two Only",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Amount Chargeable (in words) INR Six Thousand Eight Hundred Sixty Two Only",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Taxable Value",
+        "value": 5815.17,
+        "raw_value": "5,815.17",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "5,815.17 9% 523.36 9% 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "CGST Rate",
+        "value": "9%",
+        "raw_value": "9%",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "5,815.17 9% 523.36 9% 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "CGST Amount",
+        "value": 523.36,
+        "raw_value": "523.36",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "5,815.17 9% 523.36 9% 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "SGST/UTGST Rate",
+        "value": "9%",
+        "raw_value": "9%",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "5,815.17 9% 523.36 9% 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "SGST/UTGST Amount",
+        "value": 523.36,
+        "raw_value": "523.36",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "5,815.17 9% 523.36 9% 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Total Tax Amount",
+        "value": 1046.72,
+        "raw_value": "1,046.72",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total: 5,815.17 523.36 523.36 1,046.72",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Tax Amount (in words)",
+        "value": "INR One Thousand Forty Six and Seventy Two paise Only",
+        "raw_value": "INR One Thousand Forty Six and Seventy Two paise Only",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Tax Amount (in words) : INR One Thousand Forty Six and Seventy Two paise Only",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Bank Name",
+        "value": "Union Bank of India",
+        "raw_value": "Union Bank of India",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Bank Name : Union Bank of India",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "A/c No.",
+        "value": 301301010036937.0,
+        "raw_value": "301301010036937",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "A/c No. : 301301010036937",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Branch & IFS Code",
+        "value": "DHARMTALA & UBIN0530131",
+        "raw_value": "DHARMTALA & UBIN0530131",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Branch & IFS Code : DHARMTALA & UBIN0530131",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Declaration",
+        "value": "We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.",
+        "raw_value": "We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "for",
+        "value": "Shankar Enterprises-(2023-24)",
+        "raw_value": "Shankar Enterprises-(2023-24)",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "for Shankar Enterprises-(2023-24)",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "E. & O.E",
+        "value": null,
+        "raw_value": null,
+        "confidence": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "E. & O.E",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Disc. % (SI 2)",
+        "value": "99 %",
+        "raw_value": "99 %",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "SAFED WHITE DP 140GM 6 PCS 8.78 7.44 PCS 99 % 0.45",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Disc. % (SI 5)",
+        "value": "99 %",
+        "raw_value": "99 %",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "SAFED WHITE DP 140GM 8 PCS 8.78 7.44 PCS 99 % 0.60",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 1)",
+        "value": 34029011.0,
+        "raw_value": "34029011",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34029011",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 2)",
+        "value": 34029011.0,
+        "raw_value": "34029011",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34029011",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 3)",
+        "value": 34029011.0,
+        "raw_value": "34029011",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34029011",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 4)",
+        "value": 34029011.0,
+        "raw_value": "34029011",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34029011",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 5)",
+        "value": 34029011.0,
+        "raw_value": "34029011",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34029011",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "HSN/SAC (SI 6)",
+        "value": 34054000.0,
+        "raw_value": "34054000",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "34054000",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 1)",
+        "value": 61.45,
+        "raw_value": "61.45",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "48 PCS 61.45 52.08 PCS 2,499.84",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 2)",
+        "value": 8.78,
+        "raw_value": "8.78",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "6 PCS 8.78 7.44 PCS 99 % 0.45",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 3)",
+        "value": 203.02,
+        "raw_value": "203.02",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "12 PCS 203.02 172.05 PCS 2,064.60",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 4)",
+        "value": 8.78,
+        "raw_value": "8.78",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "120 PCS 8.78 7.44 PCS 892.80",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 5)",
+        "value": 8.78,
+        "raw_value": "8.78",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "8 PCS 8.78 7.44 PCS 99 % 0.60",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Rate (Incl. of Tax) (SI 6)",
+        "value": 17.55,
+        "raw_value": "17.55",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "24 PCS 17.55 14.87 PCS 356.88",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "This is a Computer Generated Invoice",
+        "value": null,
+        "raw_value": null,
+        "confidence": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "This is a Computer Generated Invoice",
+          "page_number": 1
+        }
+      }
+    ],
+    "missing_fields": [
+      "cash_paid",
+      "change",
+      "discount",
+      "due_date",
+      "payment_method",
+      "purchase_order_number",
+      "tax_rate"
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "line_item_1_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SAFED 800GM  (24PKT)  68/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 52.08
+        },
+        "calculated_value": null,
+        "reported_value": 2499.84,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_2_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SAFED WHITE DP 140GM 60PCS Twin Pack 10/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 7.44
+        },
+        "calculated_value": null,
+        "reported_value": 0.45,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_3_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SAFED 2 KG (12 PKT) PRINTED BUCKET+LID 230/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 172.05
+        },
+        "calculated_value": null,
+        "reported_value": 2064.6,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_4_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SAFED WHITE DP 140GM 60PCS Twin Pack 10/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 7.44
+        },
+        "calculated_value": null,
+        "reported_value": 892.8,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_5_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SAFED WHITE DP 140GM 60PCS Twin Pack 10/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 7.44
+        },
+        "calculated_value": null,
+        "reported_value": 0.6,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_item_6_amount_check",
+        "description": "Quantity multiplied by unit price should equal the line total for 'SPARKLE 200 GM BATI 48PCS (9.6 KG) WITH SCRUB PAD 20/-'.",
+        "formula": "quantity * unit_price",
+        "period": null,
+        "operands": {
+          "quantity": null,
+          "unit_price": 14.87
+        },
+        "calculated_value": null,
+        "reported_value": 356.88,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "line_items_subtotal_check",
+        "description": "The sum of all line totals should reconcile to the reported subtotal.",
+        "formula": "sum(line_item.amount)",
+        "period": null,
+        "operands": {
+          "line_1": 2499.84,
+          "line_2": 0.45,
+          "line_3": 2064.6,
+          "line_4": 892.8,
+          "line_5": 0.6,
+          "line_6": 356.88
+        },
+        "calculated_value": 5815.17,
+        "reported_value": 5815.17,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "invoice_total_check",
+        "description": "The taxable amount plus tax, less any discount, should equal the reported total. Tax is added on top of the taxable amount. Tax treatment was derived from the reported figures (document states: inclusive).",
+        "formula": "subtotal + tax_amount - discount (+ rounding)",
+        "period": null,
+        "operands": {
+          "subtotal": 5815.17,
+          "tax_amount": 1046.72,
+          "discount": null,
+          "rounding_adjustment": 0.11
+        },
+        "calculated_value": 6862.0,
+        "reported_value": 6862.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "cash_change_check",
+        "description": "Cash paid less the total amount should equal the change given.",
+        "formula": "cash_paid - total_amount",
+        "period": null,
+        "operands": {
+          "cash_paid": null,
+          "total_amount": 6862.0
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "extraction_method": "vision_llm",
+    "model": "claude-opus-5",
+    "pages_processed": 1,
+    "processed_at": "2026-09-11T05:01:26.766914Z",
+    "processing_time_ms": 34459
+  }
+}

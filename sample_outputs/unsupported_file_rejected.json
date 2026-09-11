@@ -1,0 +1,13 @@
+{
+  "request": {
+    "file": "README.md",
+    "document_type": "invoice"
+  },
+  "http_status": 400,
+  "response": {
+    "error": {
+      "code": "UNSUPPORTED_FILE_TYPE",
+      "message": "Only PDF / JPG / PNG documents are supported."
+    }
+  }
+}

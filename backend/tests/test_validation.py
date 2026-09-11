@@ -194,3 +194,41 @@ def test_text_contains_number():
     assert text_contains_number("Net cash used in investing (2,236.24)", -2236.24)
     assert not text_contains_number("Total Amount Due: USD 13,125.00", 999.0)
     assert not text_contains_number(None, 1.0)
+
+
+# ---------------------------------------------------------------------------
+# Configuration hygiene
+# ---------------------------------------------------------------------------
+@pytest.mark.parametrize(
+    "raw",
+    [
+        " sk-ant-test-value",       # a space after '=' in an env file
+        "sk-ant-test-value ",
+        "\nsk-ant-test-value\n",    # pasted with a trailing newline
+        '"sk-ant-test-value"',      # quoted in the env file
+        "'sk-ant-test-value'",
+    ],
+)
+def test_api_key_whitespace_and_quotes_are_stripped(raw, monkeypatch):
+    """A key with surrounding whitespace makes an illegal HTTP header.
+
+    The SDK reports that as a bare "Connection error", so the service looks
+    healthy and every upload fails with MODEL_UNAVAILABLE. python-dotenv strips
+    it; Docker's --env-file and most hosting UIs do not.
+    """
+    from app.core.config import Settings
+
+    monkeypatch.setenv("ANTHROPIC_API_KEY", raw)
+    settings = Settings(_env_file=None)
+    assert settings.anthropic_api_key == "sk-ant-test-value"
+    assert settings.extraction_enabled
+
+
+def test_postgres_url_is_normalised_for_sqlalchemy(monkeypatch):
+    """Hosting platforms hand out postgres:// URLs that SQLAlchemy rejects."""
+    from app.core.config import Settings
+
+    monkeypatch.setenv("DATABASE_URL", " postgres://user:pw@host:5432/db ")
+    assert Settings(_env_file=None).database_url == (
+        "postgresql+psycopg://user:pw@host:5432/db"
+    )

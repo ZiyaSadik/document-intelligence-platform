@@ -52,7 +52,11 @@ def matrix() -> list[Case]:
             "invoice_phone_photo",
             SAMPLES / "Invoices" / "20251118_000612.jpg",
             "invoice",
-            "4.4 MB phone photo; exercises EXIF rotation and downscaling.",
+            "4.4 MB phone photo of an Indian GST invoice. Exercises EXIF "
+            "rotation and downscaling, tax split across CGST/SGST with no "
+            "combined tax line, and the missing-value scenario: the quantity "
+            "column is not legible, so the per-line checks report "
+            "NOT_APPLICABLE rather than guessing at it.",
         ),
         Case(
             "balance_sheet_vector_pdf",
@@ -87,6 +91,78 @@ def matrix() -> list[Case]:
             expect_rejection=True,
         ),
     ]
+
+
+def write_index() -> int:
+    """Rebuild index.json from whatever is on disk.
+
+    Derived from the files rather than from one run's results, so processing a
+    single case with --only cannot drop the other six entries.
+    """
+    from app.core.config import settings
+
+    why = {case.path.name: case.why for case in matrix()}
+    entries: list[dict] = []
+
+    for path in sorted(OUTPUT.glob("*.json")):
+        if path.name == "index.json":
+            continue
+        body = json.loads(path.read_text(encoding="utf-8"))
+
+        if "error" in body.get("response", {}):
+            source = body["request"]["file"]
+            document_type = body["request"]["document_type"]
+            outcome = "REJECTED"
+            summary: dict = {
+                "http_status": body["http_status"],
+                "code": body["response"]["error"]["code"],
+            }
+        else:
+            source = body["document_name"]
+            document_type = body["document_type"]
+            outcome = body["processing_status"]
+            checks = body["validation"]["checks"]
+            summary = {
+                "processing_status": body["processing_status"],
+                "validation_status": body["validation"]["overall_status"],
+                "checks": len(checks),
+                "failed": sum(1 for c in checks if c["status"] == "FAIL"),
+                "not_applicable": sum(
+                    1 for c in checks if c["status"] == "NOT_APPLICABLE"
+                ),
+                "ocr_used": body["processing_metadata"]["ocr_used"],
+                "confidence": body["overall_confidence"],
+                "ms": body["processing_metadata"]["processing_time_ms"],
+            }
+
+        entries.append(
+            {
+                "file": path.name,
+                "source_document": source,
+                "document_type": document_type,
+                "why_included": why.get(source, ""),
+                "outcome": outcome,
+                "summary": summary,
+            }
+        )
+
+    (OUTPUT / "index.json").write_text(
+        json.dumps(
+            {
+                "generated_by": "scripts/generate_samples.py",
+                "model": settings.anthropic_model,
+                "note": (
+                    "Real pipeline output. Nothing in these files is "
+                    "hand-written or hardcoded."
+                ),
+                "samples": entries,
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    return len(entries)
 
 
 def run(cases: list[Case]) -> int:
@@ -191,22 +267,7 @@ def run(cases: list[Case]) -> int:
             }
         )
 
-    (OUTPUT / "index.json").write_text(
-        json.dumps(
-            {
-                "generated_by": "scripts/generate_samples.py",
-                "model": settings.anthropic_model,
-                "note": (
-                    "Real pipeline output. Nothing in these files is "
-                    "hand-written or hardcoded."
-                ),
-                "samples": index,
-            },
-            indent=2,
-            ensure_ascii=False,
-        ),
-        encoding="utf-8",
-    )
+    write_index()
 
     print(f"\nWrote {len(index)} file(s) to {OUTPUT.relative_to(ROOT)}/")
     if failures:
@@ -220,7 +281,16 @@ def main() -> int:
     parser.add_argument(
         "--list", action="store_true", help="Print the matrix and exit."
     )
+    parser.add_argument(
+        "--reindex",
+        action="store_true",
+        help="Rebuild index.json from the files on disk; makes no API calls.",
+    )
     args = parser.parse_args()
+
+    if args.reindex:
+        print(f"index.json rebuilt from {write_index()} sample file(s)")
+        return 0
 
     cases = matrix()
     if args.list:

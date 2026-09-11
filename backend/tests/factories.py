@@ -359,3 +359,29 @@ def gst_invoice_mislabelled_inclusive() -> InvoiceExtraction:
         tax_inclusive=True,
         line_items=[],
     )
+
+
+def gst_invoice_with_split_tax() -> InvoiceExtraction:
+    """An Indian GST invoice: tax split into CGST + SGST, no combined line.
+
+    5,815.17 + 523.36 + 523.36 + 0.11 rounding = 6,862.00. The document prints
+    no single "Tax" figure, so the model has nothing to put in tax_amount.
+    """
+    return InvoiceExtraction(
+        fields=[
+            ifield("vendor_name", "Shankar Enterprises"),
+            ifield("currency", "\u20b9"),
+            ifield("subtotal", "5,815.17"),
+            ifield("rounding_adjustment", "0.11"),
+            ifield("total_amount", "\u20b9 6,862.00"),
+        ],
+        tax_inclusive=False,
+        line_items=[],
+        additional_fields=[
+            NamedValue(label="CGST@9%", raw_value="523.36", page_number=1),
+            NamedValue(label="SGST@9%", raw_value="523.36", page_number=1),
+            # Registration numbers parse as numbers and must not be summed.
+            NamedValue(label="GSTIN/UIN (Buyer)", raw_value="19CPQPS9464F1ZX"),
+            NamedValue(label="Contact (Consignee)", raw_value="9831715156"),
+        ],
+    )

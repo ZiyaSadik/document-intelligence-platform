@@ -37,7 +37,7 @@
       "Model": meta.model || "—",
       "Checks": `${counts.PASS || 0} passed · ${counts.FAIL || 0} failed · ${counts.NOT_APPLICABLE || 0} n/a`,
       "Tolerance": tol.absolute != null
-        ? `±${tol.absolute} abs or ${(tol.relative * 100).toFixed(2)}% rel`
+        ? `±${tol.absolute} + ${tol.relative} × magnitude`
         : "—",
       "Processing time": meta.processing_time_ms != null
         ? `${(meta.processing_time_ms / 1000).toFixed(2)} s`

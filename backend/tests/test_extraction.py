@@ -502,3 +502,65 @@ def test_a_real_total_mismatch_still_fails(service):
         factories.invoice(consistent=False), document_type=DocumentType.INVOICE
     )
     assert by_name(result.checks, "invoice_total_check").status is CheckStatus.FAIL
+
+
+def test_split_gst_components_are_summed_into_the_tax_operand(service):
+    """Indian GST invoices print CGST and SGST but never a combined tax line.
+
+    Without recovering them the total check failed by exactly the tax amount,
+    which is the signature of a missing operand rather than a bad document.
+    """
+    result = service.validate(
+        factories.gst_invoice_with_split_tax(), document_type=DocumentType.INVOICE
+    )
+    check = by_name(result.checks, "invoice_total_check")
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(6_862.00)
+    assert check.operands["tax_amount"] == pytest.approx(1_046.72)
+    # Each component is surfaced so the sum can be audited.
+    assert check.operands["CGST@9%"] == pytest.approx(523.36)
+    assert check.operands["SGST@9%"] == pytest.approx(523.36)
+
+
+def test_registration_numbers_are_not_mistaken_for_tax_charges(service):
+    """"GSTIN/UIN" matches on "gst" and parses as a number. It is not a charge."""
+    result = service.validate(
+        factories.gst_invoice_with_split_tax(), document_type=DocumentType.INVOICE
+    )
+    operands = by_name(result.checks, "invoice_total_check").operands
+    assert not any("GSTIN" in key for key in operands)
+    assert not any("Contact" in key for key in operands)
+
+
+def test_no_tax_components_leaves_the_check_unchanged(service):
+    """Recovery must not fabricate a tax figure where none is printed."""
+    data = factories.gst_invoice_with_split_tax()
+    data.additional_fields = []
+    result = service.validate(data, document_type=DocumentType.INVOICE)
+    check = by_name(result.checks, "invoice_total_check")
+    assert check.operands["tax_amount"] is None
+    assert check.status is CheckStatus.FAIL  # honestly short by the tax
+
+
+def test_line_sum_is_not_compared_against_a_tax_inclusive_total(service):
+    """With no subtotal printed and tax added on top, there is nothing to
+    reconcile the line sum against.
+
+    Comparing net line amounts to a tax-bearing total fails by exactly the tax,
+    which says nothing about the document. invoice_total_check already covers
+    the relationship, using the line sum as its taxable base.
+    """
+    result = service.validate(
+        factories.receipt_without_subtotal(), document_type=DocumentType.INVOICE
+    )
+    line_check = by_name(result.checks, "line_items_subtotal_check")
+    assert line_check.status is CheckStatus.NOT_APPLICABLE
+    assert by_name(result.checks, "invoice_total_check").status is CheckStatus.PASS
+    assert result.overall_status is ValidationStatus.PASS
+
+
+def test_line_sum_still_checks_against_a_printed_subtotal(service):
+    result = service.validate(factories.invoice(), document_type=DocumentType.INVOICE)
+    check = by_name(result.checks, "line_items_subtotal_check")
+    assert check.status is CheckStatus.PASS
+    assert check.reported_value == pytest.approx(12_500.00)

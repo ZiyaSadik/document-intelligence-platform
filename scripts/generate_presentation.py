@@ -200,8 +200,8 @@ def s_title(p):
         ],
     )
     for index, (value, label) in enumerate(
-        [("4", "document types"), ("111", "automated tests"),
-         ("13", "reconciliation rules"), ("1", "deployed service")]
+        [("4", "document types"), ("126", "automated tests"),
+         ("37", "checks, 0 failures"), ("1", "deployed service")]
     ):
         x = 1.0 + index * 2.45
         text(
@@ -506,12 +506,13 @@ def s_validation(p):
     text(
         slide, 1.1, 6.2, 11.1, 0.7,
         [
-            {"text": "Tolerance   |calc − reported| ≤ 1.0   OR   "
-                     "relative variance ≤ 0.5%   — both configurable",
+            {"text": "Tolerance   |calc − reported|  ≤  0.1  +  1e-5 × magnitude"
+                     "   — a combined allowance, both terms configurable",
              "size": 12, "bold": True, "space_after": 4},
-            {"text": "Absolute-only is far too strict on figures in the hundreds "
-                     "of thousands of crore; relative-only is far too strict near "
-                     "zero. A missing operand returns NOT_APPLICABLE and never "
+            {"text": "An OR of absolute-or-relative is too loose at both ends: a "
+                     "0.5% relative limit passes a 20,000-crore discrepancy, while "
+                     "an absolute limit sized for a statement is 11% of a 9.00 till "
+                     "receipt. A missing operand returns NOT_APPLICABLE and never "
                      "fails the document.",
              "size": 10.5, "color": MUTED},
         ],
@@ -655,13 +656,13 @@ def s_dashboard(p):
     )
     if (SHOTS / "dashboard.png").exists():
         slide.shapes.add_picture(
-            str(SHOTS / "dashboard.png"), Inches(0.75), Inches(1.85),
-            height=Inches(4.4),
+            str(SHOTS / "dashboard.png"), Inches(0.75), Inches(1.95),
+            width=Inches(6.9),
         )
     if (SHOTS / "document_result.png").exists():
         slide.shapes.add_picture(
-            str(SHOTS / "document_result.png"), Inches(7.2), Inches(1.85),
-            height=Inches(4.4),
+            str(SHOTS / "document_result.png"), Inches(7.95), Inches(1.95),
+            height=Inches(4.35),
         )
     text(
         slide, 0.75, 6.45, 5.9, 0.5,
@@ -670,7 +671,7 @@ def s_dashboard(p):
           "size": 10.5, "color": MUTED}],
     )
     text(
-        slide, 7.2, 6.45, 5.35, 0.5,
+        slide, 7.95, 6.45, 4.6, 0.5,
         [{"text": "Per document: extracted fields, per-period tables, every "
                   "check with its arithmetic, and the raw JSON.",
           "size": 10.5, "color": MUTED}],
@@ -685,7 +686,7 @@ def s_quality(p):
     )
 
     cells = [
-        ("Testing", "111 tests, zero network",
+        ("Testing", "126 tests, zero network",
          "The Anthropic client is stubbed throughout, so the suite runs the "
          "same in CI and with no API key."),
         ("Logging", "Structured, correlated",
@@ -869,7 +870,7 @@ def s_close(p):
             {"text": "README with setup, API reference, validation rules and "
                      "tolerance\n\nArchitecture diagram\n\nDeployment "
                      "runbook\n\nSample JSON outputs from the real pipeline\n\n"
-                     "111 automated tests",
+                     "126 automated tests",
              "size": 10.5, "color": MUTED_LIGHT},
         ],
     )

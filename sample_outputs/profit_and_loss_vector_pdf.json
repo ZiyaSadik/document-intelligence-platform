@@ -1,0 +1,1091 @@
+{
+  "document_name": "Consolidated Profit & Loss 2022.pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "overall_confidence": 0.839,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "entity_name": {
+      "value": "HDFC Bank Limited",
+      "raw_value": "HDFC Bank Limited",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "HDFC Bank Limited Integrated Annual Report 2021-22",
+        "page_number": 1
+      }
+    },
+    "statement_title": {
+      "value": "Consolidated Profit and Loss Account",
+      "raw_value": "Consolidated Profit and Loss Account",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "Consolidated Profit and Loss Account",
+        "page_number": 1
+      }
+    },
+    "currency": {
+      "value": "₹",
+      "raw_value": "₹",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in crore",
+        "page_number": 1
+      }
+    },
+    "units": {
+      "value": "in crore",
+      "raw_value": "in crore",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in crore",
+        "page_number": 1
+      }
+    },
+    "periods": [
+      {
+        "label": "Year ended March 31, 2022",
+        "period_end_date": "2022-03-31"
+      },
+      {
+        "label": "Year ended March 31, 2021",
+        "period_end_date": "2021-03-31"
+      }
+    ],
+    "line_items": [
+      {
+        "label": "Interest earned",
+        "section": "I INCOME",
+        "is_total": false,
+        "schedule_reference": "13",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Interest earned 13 135,936.41 128,552.40",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 135936.41,
+            "raw_value": "135,936.41",
+            "confidence": 0.7
+          },
+          "Year ended March 31, 2021": {
+            "value": 128552.4,
+            "raw_value": "128,552.40",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Other income",
+        "section": "I INCOME",
+        "is_total": false,
+        "schedule_reference": "14",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Other income 14 31,758.99 27,332.88",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 31758.99,
+            "raw_value": "31,758.99",
+            "confidence": 0.7
+          },
+          "Year ended March 31, 2021": {
+            "value": 27332.88,
+            "raw_value": "27,332.88",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "I INCOME",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 167,695.40 155,885.28",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 167695.4,
+            "raw_value": "167,695.40",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 155885.28,
+            "raw_value": "155,885.28",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Interest expended",
+        "section": "II EXPENDITURE",
+        "is_total": false,
+        "schedule_reference": "15",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Interest expended 15 58,584.33 59,247.59",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 58584.33,
+            "raw_value": "58,584.33",
+            "confidence": 0.7
+          },
+          "Year ended March 31, 2021": {
+            "value": 59247.59,
+            "raw_value": "59,247.59",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Operating expenses",
+        "section": "II EXPENDITURE",
+        "is_total": false,
+        "schedule_reference": "16",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Operating expenses 16 40,312.43 35,001.26",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 40312.43,
+            "raw_value": "40,312.43",
+            "confidence": 0.7
+          },
+          "Year ended March 31, 2021": {
+            "value": 35001.26,
+            "raw_value": "35,001.26",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Provisions and contingencies [Refer Schedule 18 (12)]",
+        "section": "II EXPENDITURE",
+        "is_total": false,
+        "schedule_reference": "18 (12)",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Provisions and contingencies [Refer Schedule 18 (12)] 30,647.74 29,779.66",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 30647.74,
+            "raw_value": "30,647.74",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 29779.66,
+            "raw_value": "29,779.66",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "II EXPENDITURE",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 129,544.50 124,028.51",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 129544.5,
+            "raw_value": "129,544.50",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 124028.51,
+            "raw_value": "124,028.51",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Consolidated Net Profit for the year before minorities' interest",
+        "section": "III PROFIT",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated Net Profit for the year before minorities' interest 38,150.90 31,856.77",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 38150.9,
+            "raw_value": "38,150.90",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 31856.77,
+            "raw_value": "31,856.77",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Less : Minorities' Interest",
+        "section": "III PROFIT",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Less : Minorities' Interest 98.15 23.56",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 98.15,
+            "raw_value": "98.15",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 23.56,
+            "raw_value": "23.56",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Consolidated Net Profit for the year attributable to the group",
+        "section": "III PROFIT",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Consolidated Net Profit for the year attributable to the group 38,052.75 31,833.21",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 38052.75,
+            "raw_value": "38,052.75",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 31833.21,
+            "raw_value": "31,833.21",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Add: Brought forward consolidated profit attributable to the group",
+        "section": "III PROFIT",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Add: Brought forward consolidated profit attributable to the group 78,594.20 61,817.68",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 78594.2,
+            "raw_value": "78,594.20",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 61817.68,
+            "raw_value": "61,817.68",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "III PROFIT",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 116,646.95 93,650.89",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 116646.95,
+            "raw_value": "116,646.95",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 93650.89,
+            "raw_value": "93,650.89",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Transfer to Statutory Reserve",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to Statutory Reserve 9,444.38 7,879.70",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 9444.38,
+            "raw_value": "9,444.38",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 7879.7,
+            "raw_value": "7,879.70",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Dividend pertaining to previous year paid during the year",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Dividend pertaining to previous year paid during the year 3,592.40 -",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 3592.4,
+            "raw_value": "3,592.40",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Transfer to General Reserve",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to General Reserve 3,696.14 3,111.65",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 3696.14,
+            "raw_value": "3,696.14",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 3111.65,
+            "raw_value": "3,111.65",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Transfer to Capital Reserve",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to Capital Reserve 666.47 2,291.68",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 666.47,
+            "raw_value": "666.47",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 2291.68,
+            "raw_value": "2,291.68",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Transfer to / (from) Investment Reserve Account",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Investment Reserve Account 233.13 61.66",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 233.13,
+            "raw_value": "233.13",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 61.66,
+            "raw_value": "61.66",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Transfer to / (from) Investment Fluctuation Reserve",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Investment Fluctuation Reserve – 1,712.00",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 0.0,
+            "raw_value": "–",
+            "confidence": 0.7
+          },
+          "Year ended March 31, 2021": {
+            "value": 1712.0,
+            "raw_value": "1,712.00",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Transfer to / (from) Minority Interest (opening adjustment)",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Transfer to / (from) Minority Interest (opening adjustment) (48.34) -",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": -48.34,
+            "raw_value": "(48.34)",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.7
+          }
+        }
+      },
+      {
+        "label": "Balance carried over to consolidated balance sheet",
+        "section": "IV APPROPRIATIONS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Balance carried over to consolidated balance sheet 99,062.77 78,594.20",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 99062.77,
+            "raw_value": "99,062.77",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 78594.2,
+            "raw_value": "78,594.20",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "IV APPROPRIATIONS",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 116,646.95 93,650.89",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 116646.95,
+            "raw_value": "116,646.95",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 93650.89,
+            "raw_value": "93,650.89",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "V EARNINGS PER EQUITY SHARE (FACE VALUE ₹ 1 PER SHARE)",
+        "section": "V EARNINGS PER EQUITY SHARE (FACE VALUE ₹ 1 PER SHARE)",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "V EARNINGS PER EQUITY SHARE (FACE VALUE ₹ 1 PER SHARE) ₹ ₹",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": null,
+            "raw_value": "₹",
+            "confidence": null
+          },
+          "Year ended March 31, 2021": {
+            "value": null,
+            "raw_value": "₹",
+            "confidence": null
+          }
+        }
+      },
+      {
+        "label": "Basic",
+        "section": "V EARNINGS PER EQUITY SHARE (FACE VALUE ₹ 1 PER SHARE)",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Basic 68.77 57.88",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 68.77,
+            "raw_value": "68.77",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 57.88,
+            "raw_value": "57.88",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Diluted",
+        "section": "V EARNINGS PER EQUITY SHARE (FACE VALUE ₹ 1 PER SHARE)",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Diluted 68.31 57.61",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": 68.31,
+            "raw_value": "68.31",
+            "confidence": 0.9
+          },
+          "Year ended March 31, 2021": {
+            "value": 57.61,
+            "raw_value": "57.61",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Significant accounting policies and notes to the Consolidated financial statements",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": "17 & 18",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Significant accounting policies and notes to the Consolidated financial statements 17 & 18",
+          "page_number": 1
+        },
+        "values": {
+          "Year ended March 31, 2022": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          },
+          "Year ended March 31, 2021": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          }
+        }
+      }
+    ],
+    "key_figures": {
+      "Year ended March 31, 2022": {
+        "revenue": {
+          "value": 135936.41,
+          "source_label": "Interest earned",
+          "page_number": 1
+        },
+        "other_income": {
+          "value": 31758.99,
+          "source_label": "Other income",
+          "page_number": 1
+        },
+        "total_income": {
+          "value": 167695.4,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "operating_expenses": {
+          "value": 40312.43,
+          "source_label": "Operating expenses",
+          "page_number": 1
+        },
+        "total_expenditure": {
+          "value": 129544.5,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "net_profit": {
+          "value": 38052.75,
+          "source_label": "Consolidated Net Profit for the year attributable to the group",
+          "page_number": 1
+        },
+        "profit_before_minority_interest": {
+          "value": 38150.9,
+          "source_label": "Consolidated Net Profit for the year before minorities' interest",
+          "page_number": 1
+        }
+      },
+      "Year ended March 31, 2021": {
+        "revenue": {
+          "value": 128552.4,
+          "source_label": "Interest earned",
+          "page_number": 1
+        },
+        "other_income": {
+          "value": 27332.88,
+          "source_label": "Other income",
+          "page_number": 1
+        },
+        "total_income": {
+          "value": 155885.28,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "operating_expenses": {
+          "value": 35001.26,
+          "source_label": "Operating expenses",
+          "page_number": 1
+        },
+        "total_expenditure": {
+          "value": 124028.51,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "net_profit": {
+          "value": 31833.21,
+          "source_label": "Consolidated Net Profit for the year attributable to the group",
+          "page_number": 1
+        },
+        "profit_before_minority_interest": {
+          "value": 31856.77,
+          "source_label": "Consolidated Net Profit for the year before minorities' interest",
+          "page_number": 1
+        }
+      }
+    },
+    "header_fields": [
+      {
+        "label": "Period covered",
+        "value": "For the year ended March 31, 2022",
+        "raw_value": "For the year ended March 31, 2022",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For the year ended March 31, 2022",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Note",
+        "value": "The schedules referred to above form an integral part of the Consolidated Profit and Loss Account.",
+        "raw_value": "The schedules referred to above form an integral part of the Consolidated Profit and Loss Account.",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "The schedules referred to above form an integral part of the Consolidated Profit and Loss Account.",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor reference",
+        "value": "As per our report of even date",
+        "raw_value": "As per our report of even date",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "As per our report of even date",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor",
+        "value": "For MSKA & Associates, Chartered Accountants, ICAI Firm Registration Number: 105047W",
+        "raw_value": "For MSKA & Associates, Chartered Accountants, ICAI Firm Registration Number: 105047W",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For MSKA & Associates Chartered Accountants ICAI Firm Registration Number: 105047W",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor Partner",
+        "value": "Swapnil Kale, Partner, Membership Number: 117812",
+        "raw_value": "Swapnil Kale, Partner, Membership Number: 117812",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Swapnil Kale Partner Membership Number: 117812",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor",
+        "value": "For M M Nissim & Co LLP, Chartered Accountants, ICAI Firm Registration Number: 107122W/W100672",
+        "raw_value": "For M M Nissim & Co LLP, Chartered Accountants, ICAI Firm Registration Number: 107122W/W100672",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For M M Nissim & Co LLP Chartered Accountants ICAI Firm Registration Number: 107122W/W100672",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor Partner",
+        "value": "Sanjay Khemani, Partner, Membership Number: 044577",
+        "raw_value": "Sanjay Khemani, Partner, Membership Number: 044577",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sanjay Khemani Partner Membership Number: 044577",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Place and date",
+        "value": "Mumbai, April 16, 2022",
+        "raw_value": "Mumbai, April 16, 2022",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Mumbai, April 16, 2022",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Atanu Chakraborty - Part Time Chairman of the Board",
+        "raw_value": "Atanu Chakraborty - Part Time Chairman of the Board",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Atanu Chakraborty Part Time Chairman of the Board",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Umesh Chandra Sarangi - Independent Director",
+        "raw_value": "Umesh Chandra Sarangi - Independent Director",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Umesh Chandra Sarangi Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "M. D. Ranganath - Independent Director",
+        "raw_value": "M. D. Ranganath - Independent Director",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "M. D. Ranganath Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Malay Patel - Independent Director",
+        "raw_value": "Malay Patel - Independent Director",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Malay Patel Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Lily Vadera - Independent Director",
+        "raw_value": "Lily Vadera - Independent Director",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Lily Vadera Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Sashidhar Jagdishan - Managing Director & CEO",
+        "raw_value": "Sashidhar Jagdishan - Managing Director & CEO",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sashidhar Jagdishan Managing Director & CEO",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Kaizad Bharucha - Executive Director",
+        "raw_value": "Kaizad Bharucha - Executive Director",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Kaizad Bharucha Executive Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Srinivasan Vaidyanathan - Chief Financial Officer",
+        "raw_value": "Srinivasan Vaidyanathan - Chief Financial Officer",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Srinivasan Vaidyanathan Chief Financial Officer",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "Santosh Haldankar - Company Secretary",
+        "raw_value": "Santosh Haldankar - Company Secretary",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Santosh Haldankar Company Secretary",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Report reference",
+        "value": "HDFC Bank Limited Integrated Annual Report 2021-22",
+        "raw_value": "HDFC Bank Limited Integrated Annual Report 2021-22",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "HDFC Bank Limited Integrated Annual Report 2021-22 309",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Page number",
+        "value": 309.0,
+        "raw_value": "309",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "HDFC Bank Limited Integrated Annual Report 2021-22 309",
+          "page_number": 1
+        }
+      }
+    ],
+    "missing_fields": []
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "total_income_check",
+        "description": "Interest earned plus other income equals total income.",
+        "formula": "interest_earned + other_income",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "interest_earned": 135936.41,
+          "other_income": 31758.99
+        },
+        "calculated_value": 167695.4,
+        "reported_value": 167695.4,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "total_expenditure_check",
+        "description": "Interest expended plus operating expenses plus provisions and contingencies equals total expenditure.",
+        "formula": "interest_expended + operating_expenses + provisions_and_contingencies",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "interest_expended": 58584.33,
+          "operating_expenses": 40312.43,
+          "provisions_and_contingencies": 30647.74
+        },
+        "calculated_value": 129544.5,
+        "reported_value": 129544.5,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_before_minority_interest_check",
+        "description": "Total income less total expenditure equals consolidated net profit before minority interest.",
+        "formula": "total_income - total_expenditure",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "total_income": 167695.4,
+          "total_expenditure": 129544.5
+        },
+        "calculated_value": 38150.9,
+        "reported_value": 38150.9,
+        "variance": -0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_attributable_to_group_check",
+        "description": "Profit before minority interest less minority interest equals the profit attributable to the group.",
+        "formula": "profit_before_minority_interest - minority_interest",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "profit_before_minority_interest": 38150.9,
+          "minority_interest": 98.15
+        },
+        "calculated_value": 38052.75,
+        "reported_value": 38052.75,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "appropriation_check",
+        "description": "Current-year profit plus profit brought forward equals the total available for appropriation.",
+        "formula": "net_profit_attributable_to_group + profit_brought_forward",
+        "period": "Year ended March 31, 2022",
+        "operands": {
+          "net_profit_attributable_to_group": 38052.75,
+          "profit_brought_forward": 78594.2
+        },
+        "calculated_value": 116646.95,
+        "reported_value": 116646.95,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "total_income_check",
+        "description": "Interest earned plus other income equals total income.",
+        "formula": "interest_earned + other_income",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "interest_earned": 128552.4,
+          "other_income": 27332.88
+        },
+        "calculated_value": 155885.28,
+        "reported_value": 155885.28,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "total_expenditure_check",
+        "description": "Interest expended plus operating expenses plus provisions and contingencies equals total expenditure.",
+        "formula": "interest_expended + operating_expenses + provisions_and_contingencies",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "interest_expended": 59247.59,
+          "operating_expenses": 35001.26,
+          "provisions_and_contingencies": 29779.66
+        },
+        "calculated_value": 124028.51,
+        "reported_value": 124028.51,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_before_minority_interest_check",
+        "description": "Total income less total expenditure equals consolidated net profit before minority interest.",
+        "formula": "total_income - total_expenditure",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "total_income": 155885.28,
+          "total_expenditure": 124028.51
+        },
+        "calculated_value": 31856.77,
+        "reported_value": 31856.77,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_attributable_to_group_check",
+        "description": "Profit before minority interest less minority interest equals the profit attributable to the group.",
+        "formula": "profit_before_minority_interest - minority_interest",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "profit_before_minority_interest": 31856.77,
+          "minority_interest": 23.56
+        },
+        "calculated_value": 31833.21,
+        "reported_value": 31833.21,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "appropriation_check",
+        "description": "Current-year profit plus profit brought forward equals the total available for appropriation.",
+        "formula": "net_profit_attributable_to_group + profit_brought_forward",
+        "period": "Year ended March 31, 2021",
+        "operands": {
+          "net_profit_attributable_to_group": 31833.21,
+          "profit_brought_forward": 61817.68
+        },
+        "calculated_value": 93650.89,
+        "reported_value": 93650.89,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "extraction_method": "vision_llm",
+    "model": "claude-opus-5",
+    "pages_processed": 1,
+    "processed_at": "2026-09-11T05:02:55.341279Z",
+    "processing_time_ms": 48401
+  }
+}

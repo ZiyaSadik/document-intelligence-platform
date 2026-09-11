@@ -31,12 +31,17 @@ names only, no values.
 
 ## 1. Push to a public GitHub repository
 
+Already done for this project — the code lives at
+<https://github.com/ZiyaSadik/document-intelligence-platform>.
+
+To reproduce from scratch:
+
 ```bash
 git init
 git add .
 git commit -m "Document intelligence platform"
 git branch -M main
-git remote add origin https://github.com/<you>/<repo>.git
+git remote add origin https://github.com/ZiyaSadik/document-intelligence-platform.git
 git push -u origin main
 ```
 
@@ -49,7 +54,7 @@ Make sure the repository visibility is **Public** — the brief requires it.
 A deploy that fails on something a local run would have caught wastes a cycle.
 
 ```bash
-cd backend && pytest          # expect 107 passed
+cd backend && pytest          # expect 126 passed
 cd backend && uvicorn app.main:app --port 8000
 curl localhost:8000/api/v1/health
 ```
@@ -156,6 +161,7 @@ frontend, API, Swagger and repository URLs, then commit and push.
 |---|---|
 | Build fails installing dependencies | Confirm the Docker runtime is selected, not a Python native runtime. Every dependency is a wheel; no system packages are required. |
 | `503 MODEL_NOT_CONFIGURED` | `ANTHROPIC_API_KEY` is unset or was rejected. Check the Environment tab; `/api/v1/health` reports `extraction_configured`. |
+| `503 MODEL_UNAVAILABLE` with `Connection error.` in the log, while health looks fine | Classically an API key with stray whitespace or quotes around it — a value with a leading space makes an illegal HTTP header, and the SDK reports it as a connection failure. The application strips this defensively, but check the value if you see it. |
 | Dashboard empties after a redeploy | `DATABASE_URL` still points at SQLite. Attach the PostgreSQL instance. |
 | First request after a pause times out | Free-tier cold start. Retry once. |
 | `502 EXTRACTION_FAILED` on a dense statement | The output ceiling was hit. Raise `ANTHROPIC_MAX_TOKENS`. |

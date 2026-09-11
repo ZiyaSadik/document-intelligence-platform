@@ -81,6 +81,23 @@ class Settings(BaseSettings):
     def static_dir(self) -> Path:
         return FRONTEND_ROOT / "static"
 
+    @field_validator("anthropic_api_key", "database_url", mode="before")
+    @classmethod
+    def _strip_surrounding_whitespace(cls, value: object) -> object:
+        """Trim stray whitespace and quotes from credential-shaped values.
+
+        This is not cosmetic. A value that reaches the process with a leading
+        space -- ``ANTHROPIC_API_KEY= sk-ant-...`` in an env file that Docker
+        reads verbatim, or a newline pasted into a hosting platform's
+        environment UI -- produces an *illegal HTTP header*, which the SDK
+        surfaces as a bare "Connection error." The service looks healthy, the
+        key looks present, and every upload fails with MODEL_UNAVAILABLE.
+        Costing an hour to that is easy; preventing it is one line.
+        """
+        if isinstance(value, str):
+            return value.strip().strip('"').strip("'").strip()
+        return value
+
     @field_validator("database_url")
     @classmethod
     def _normalise_database_url(cls, value: str) -> str:

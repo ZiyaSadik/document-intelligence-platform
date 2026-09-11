@@ -1,0 +1,975 @@
+{
+  "document_name": "Consolidated Balance Sheet 2024.pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "overall_confidence": 0.895,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "reason": null
+  },
+  "extracted_data": {
+    "entity_name": {
+      "value": "HDFC Bank Limited",
+      "raw_value": "HDFC Bank Limited",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "416   HDFC Bank Limited",
+        "page_number": 1
+      }
+    },
+    "statement_title": {
+      "value": "CONSOLIDATED BALANCE SHEET",
+      "raw_value": "CONSOLIDATED BALANCE SHEET",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "CONSOLIDATED BALANCE SHEET",
+        "page_number": 1
+      }
+    },
+    "currency": {
+      "value": "₹",
+      "raw_value": "₹",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in crore",
+        "page_number": 1
+      }
+    },
+    "units": {
+      "value": "in crore",
+      "raw_value": "in crore",
+      "confidence": 0.9,
+      "page_number": 1,
+      "evidence": {
+        "source_text": "₹ in crore",
+        "page_number": 1
+      }
+    },
+    "periods": [
+      {
+        "label": "As at March 31, 2024",
+        "period_end_date": "2024-03-31"
+      },
+      {
+        "label": "As at March 31, 2023",
+        "period_end_date": "2023-03-31"
+      }
+    ],
+    "line_items": [
+      {
+        "label": "Capital",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "1",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Capital 1 759.69 557.97",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 759.69,
+            "raw_value": "759.69",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 557.97,
+            "raw_value": "557.97",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Employees stock options outstanding",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "18 (4)",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Employees stock options outstanding 18 (4) 2,652.72 1,117.20",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 2652.72,
+            "raw_value": "2,652.72",
+            "confidence": 0.99
+          },
+          "As at March 31, 2023": {
+            "value": 1117.2,
+            "raw_value": "1,117.20",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Reserves and surplus",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "2",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Reserves and surplus 2 452,982.84 287,762.33",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 452982.84,
+            "raw_value": "452,982.84",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 287762.33,
+            "raw_value": "287,762.33",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Minority interest",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "2A",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Minority interest 2A 13,383.40 860.26",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 13383.4,
+            "raw_value": "13,383.40",
+            "confidence": 0.99
+          },
+          "As at March 31, 2023": {
+            "value": 860.26,
+            "raw_value": "860.26",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Deposits",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "3",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Deposits 3 2,376,887.28 1,882,663.25",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 2376887.28,
+            "raw_value": "2,376,887.28",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 1882663.25,
+            "raw_value": "1,882,663.25",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Borrowings",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "4",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Borrowings 4 730,615.46 256,548.66",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 730615.46,
+            "raw_value": "730,615.46",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 256548.66,
+            "raw_value": "256,548.66",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Other liabilities and provisions",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": "5",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Other liabilities and provisions 5 174,832.07 100,922.77",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 174832.07,
+            "raw_value": "174,832.07",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 100922.77,
+            "raw_value": "100,922.77",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Policyholders' funds",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Policyholders' funds 278,080.80 -",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 278080.8,
+            "raw_value": "278,080.80",
+            "confidence": 0.99
+          },
+          "As at March 31, 2023": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.8
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "CAPITAL AND LIABILITIES",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 4,030,194.26 2,530,432.44",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 4030194.26,
+            "raw_value": "4,030,194.26",
+            "confidence": 0.9
+          },
+          "As at March 31, 2023": {
+            "value": 2530432.44,
+            "raw_value": "2,530,432.44",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Cash and balances with Reserve Bank of India",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "6",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Cash and balances with Reserve Bank of India 6 178,718.67 117,189.28",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 178718.67,
+            "raw_value": "178,718.67",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 117189.28,
+            "raw_value": "117,189.28",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Balances with banks and money at call and short notice",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "7",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Balances with banks and money at call and short notice 7 50,115.84 79,958.53",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 50115.84,
+            "raw_value": "50,115.84",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 79958.53,
+            "raw_value": "79,958.53",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Investments",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "8",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Investments 8 1,005,681.63 511,581.71",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 1005681.63,
+            "raw_value": "1,005,681.63",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 511581.71,
+            "raw_value": "511,581.71",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Advances",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "9",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Advances 9 2,565,891.41 1,661,949.29",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 2565891.41,
+            "raw_value": "2,565,891.41",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 1661949.29,
+            "raw_value": "1,661,949.29",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Fixed assets",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "10",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Fixed assets 10 12,603.76 8,282.56",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 12603.76,
+            "raw_value": "12,603.76",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 8282.56,
+            "raw_value": "8,282.56",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Other assets",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": "11",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Other assets 11 217,182.95 151,322.28",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 217182.95,
+            "raw_value": "217,182.95",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 151322.28,
+            "raw_value": "151,322.28",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Goodwill on Consolidation",
+        "section": "ASSETS",
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Goodwill on Consolidation - 148.79",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 0.0,
+            "raw_value": "-",
+            "confidence": 0.8
+          },
+          "As at March 31, 2023": {
+            "value": 148.79,
+            "raw_value": "148.79",
+            "confidence": 0.99
+          }
+        }
+      },
+      {
+        "label": "Total",
+        "section": "ASSETS",
+        "is_total": true,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Total 4,030,194.26 2,530,432.44",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 4030194.26,
+            "raw_value": "4,030,194.26",
+            "confidence": 0.9
+          },
+          "As at March 31, 2023": {
+            "value": 2530432.44,
+            "raw_value": "2,530,432.44",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Contingent liabilities",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": "12",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Contingent liabilities 12 2,344,487.73 1,750,953.81",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 2344487.73,
+            "raw_value": "2,344,487.73",
+            "confidence": 0.7
+          },
+          "As at March 31, 2023": {
+            "value": 1750953.81,
+            "raw_value": "1,750,953.81",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Bills for collection",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": null,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Bills for collection 65,332.87 71,439.54",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": 65332.87,
+            "raw_value": "65,332.87",
+            "confidence": 0.9
+          },
+          "As at March 31, 2023": {
+            "value": 71439.54,
+            "raw_value": "71,439.54",
+            "confidence": 0.9
+          }
+        }
+      },
+      {
+        "label": "Significant accounting policies and notes to the Consolidated Financial Statements The schedules referred to above form an integral part of the Consolidated Balance Sheet.",
+        "section": null,
+        "is_total": false,
+        "schedule_reference": "17 & 18",
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Significant accounting policies and notes to the Consolidated Financial Statements The schedules referred to above form an integral part of the Consolidated Balance Sheet. 17 & 18",
+          "page_number": 1
+        },
+        "values": {
+          "As at March 31, 2024": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          },
+          "As at March 31, 2023": {
+            "value": null,
+            "raw_value": null,
+            "confidence": null
+          }
+        }
+      }
+    ],
+    "key_figures": {
+      "As at March 31, 2024": {
+        "total_assets": {
+          "value": 4030194.26,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "total_liabilities": {
+          "value": 4030194.26,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "total_equity": {
+          "value": null,
+          "source_label": null
+        }
+      },
+      "As at March 31, 2023": {
+        "total_assets": {
+          "value": 2530432.44,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "total_liabilities": {
+          "value": 2530432.44,
+          "source_label": "Total",
+          "page_number": 1
+        },
+        "total_equity": {
+          "value": null,
+          "source_label": null
+        }
+      }
+    },
+    "header_fields": [
+      {
+        "label": "As at",
+        "value": "As at March 31, 2024",
+        "raw_value": "As at March 31, 2024",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "As at March 31, 2024",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor reference",
+        "value": "As per our report of even date",
+        "raw_value": "As per our report of even date",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "As per our report of even date",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor",
+        "value": "For M M Nissim & Co LLP, Chartered Accountants",
+        "raw_value": "For M M Nissim & Co LLP, Chartered Accountants",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For M M Nissim & Co LLP Chartered Accountants",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "ICAI Firm Registration Number",
+        "value": "107122W/W100672",
+        "raw_value": "107122W/W100672",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "ICAI Firm Registration Number: 107122W/W100672",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Partner",
+        "value": "Sanjay Khemani",
+        "raw_value": "Sanjay Khemani",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sanjay Khemani Partner",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Membership Number",
+        "value": 44577.0,
+        "raw_value": "044577",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Membership Number: 044577",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Auditor",
+        "value": "For Price Waterhouse LLP, Chartered Accountants",
+        "raw_value": "For Price Waterhouse LLP, Chartered Accountants",
+        "confidence": 0.7,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For Price Waterhouse LLP Chartered Accountants",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "ICAI Firm Registration Number",
+        "value": "301112E/E300264",
+        "raw_value": "301112E/E300264",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "ICAI Firm Registration Number: 301112E/E300264",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Partner",
+        "value": "Sharad Vasant",
+        "raw_value": "Sharad Vasant",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sharad Vasant Partner",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Membership Number",
+        "value": 101119.0,
+        "raw_value": "101119",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Membership Number: 101119",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "For and on behalf of the Board",
+        "value": "For and on behalf of the Board",
+        "raw_value": "For and on behalf of the Board",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "For and on behalf of the Board",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Part-time Chairman of the Board",
+        "value": "Atanu Chakraborty",
+        "raw_value": "Atanu Chakraborty",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Atanu Chakraborty Part-time Chairman of the Board",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Managing Director & CEO",
+        "value": "Sashidhar Jagdishan",
+        "raw_value": "Sashidhar Jagdishan",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sashidhar Jagdishan Managing Director & CEO",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Deputy Managing Director",
+        "value": "Kaizad Bharucha",
+        "raw_value": "Kaizad Bharucha",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Kaizad Bharucha Deputy Managing Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Sandeep Parekh",
+        "raw_value": "Sandeep Parekh",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sandeep Parekh Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Sunita Maheshwari",
+        "raw_value": "Sunita Maheshwari",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Sunita Maheshwari Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Lily Vadera",
+        "raw_value": "Lily Vadera",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Lily Vadera Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Independent Director",
+        "value": "Harsh Kumar Bhanwala",
+        "raw_value": "Harsh Kumar Bhanwala",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Harsh Kumar Bhanwala Independent Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Executive Director",
+        "value": "Bhavesh Zaveri",
+        "raw_value": "Bhavesh Zaveri",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Bhavesh Zaveri Executive Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Executive Director",
+        "value": "V. S. Rangan",
+        "raw_value": "V. S. Rangan",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "V. S. Rangan Executive Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Non-Executive Director",
+        "value": "Renu Karnad",
+        "raw_value": "Renu Karnad",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Renu Karnad Non-Executive Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Non-Executive Director",
+        "value": "Keki Mistry",
+        "raw_value": "Keki Mistry",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Keki Mistry Non-Executive Director",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Chief Financial Officer",
+        "value": "Srinivasan Vaidyanathan",
+        "raw_value": "Srinivasan Vaidyanathan",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Srinivasan Vaidyanathan Chief Financial Officer",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Company Secretary",
+        "value": "Santosh Haldankar",
+        "raw_value": "Santosh Haldankar",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Santosh Haldankar Company Secretary",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Place and date",
+        "value": "Mumbai, April 20, 2024",
+        "raw_value": "Mumbai, April 20, 2024",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "Mumbai, April 20, 2024",
+          "page_number": 1
+        }
+      },
+      {
+        "label": "Page",
+        "value": 416.0,
+        "raw_value": "416",
+        "confidence": 0.9,
+        "page_number": 1,
+        "evidence": {
+          "source_text": "416   HDFC Bank Limited",
+          "page_number": 1
+        }
+      }
+    ],
+    "missing_fields": []
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "balance_sheet_equation_check",
+        "description": "Total capital and liabilities should equal total assets.",
+        "formula": "total_capital_and_liabilities = total_assets",
+        "period": "As at March 31, 2024",
+        "operands": {
+          "total_capital_and_liabilities": 4030194.26,
+          "total_assets": 4030194.26
+        },
+        "calculated_value": 4030194.26,
+        "reported_value": 4030194.26,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "section_sum_check::capital and liabilities",
+        "description": "The component rows of 'CAPITAL AND LIABILITIES' should sum to its reported total ('Total').",
+        "formula": "sum of 8 component rows in 'CAPITAL AND LIABILITIES'",
+        "period": "As at March 31, 2024",
+        "operands": {
+          "Capital": 759.69,
+          "Employees stock options outstanding": 2652.72,
+          "Reserves and surplus": 452982.84,
+          "Minority interest": 13383.4,
+          "Deposits": 2376887.28,
+          "Borrowings": 730615.46,
+          "Other liabilities and provisions": 174832.07,
+          "Policyholders' funds": 278080.8
+        },
+        "calculated_value": 4030194.26,
+        "reported_value": 4030194.26,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "section_sum_check::assets",
+        "description": "The component rows of 'ASSETS' should sum to its reported total ('Total').",
+        "formula": "sum of 7 component rows in 'ASSETS'",
+        "period": "As at March 31, 2024",
+        "operands": {
+          "Cash and balances with Reserve Bank of India": 178718.67,
+          "Balances with banks and money at call and short notice": 50115.84,
+          "Investments": 1005681.63,
+          "Advances": 2565891.41,
+          "Fixed assets": 12603.76,
+          "Other assets": 217182.95,
+          "Goodwill on Consolidation": 0.0
+        },
+        "calculated_value": 4030194.26,
+        "reported_value": 4030194.26,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "balance_sheet_equation_check",
+        "description": "Total capital and liabilities should equal total assets.",
+        "formula": "total_capital_and_liabilities = total_assets",
+        "period": "As at March 31, 2023",
+        "operands": {
+          "total_capital_and_liabilities": 2530432.44,
+          "total_assets": 2530432.44
+        },
+        "calculated_value": 2530432.44,
+        "reported_value": 2530432.44,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "section_sum_check::capital and liabilities",
+        "description": "The component rows of 'CAPITAL AND LIABILITIES' should sum to its reported total ('Total').",
+        "formula": "sum of 8 component rows in 'CAPITAL AND LIABILITIES'",
+        "period": "As at March 31, 2023",
+        "operands": {
+          "Capital": 557.97,
+          "Employees stock options outstanding": 1117.2,
+          "Reserves and surplus": 287762.33,
+          "Minority interest": 860.26,
+          "Deposits": 1882663.25,
+          "Borrowings": 256548.66,
+          "Other liabilities and provisions": 100922.77,
+          "Policyholders' funds": 0.0
+        },
+        "calculated_value": 2530432.44,
+        "reported_value": 2530432.44,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "section_sum_check::assets",
+        "description": "The component rows of 'ASSETS' should sum to its reported total ('Total').",
+        "formula": "sum of 7 component rows in 'ASSETS'",
+        "period": "As at March 31, 2023",
+        "operands": {
+          "Cash and balances with Reserve Bank of India": 117189.28,
+          "Balances with banks and money at call and short notice": 79958.53,
+          "Investments": 511581.71,
+          "Advances": 1661949.29,
+          "Fixed assets": 8282.56,
+          "Other assets": 151322.28,
+          "Goodwill on Consolidation": 148.79
+        },
+        "calculated_value": 2530432.44,
+        "reported_value": 2530432.44,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": [],
+    "tolerance": {
+      "absolute": 0.1,
+      "relative": 1e-05
+    }
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "extraction_method": "vision_llm",
+    "model": "claude-opus-5",
+    "pages_processed": 1,
+    "processed_at": "2026-09-11T05:02:06.920623Z",
+    "processing_time_ms": 40132
+  }
+}
