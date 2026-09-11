@@ -60,8 +60,8 @@ class Settings(BaseSettings):
     jpeg_quality: int = 85
 
     # --- Financial validation --------------------------------------------
-    validation_abs_tolerance: float = 1.0
-    validation_rel_tolerance: float = 0.005
+    validation_abs_tolerance: float = 0.1
+    validation_rel_tolerance: float = 0.00001
 
     # --- Derived ----------------------------------------------------------
     @property

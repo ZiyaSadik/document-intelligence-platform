@@ -393,3 +393,112 @@ def test_balance_sheet_key_figures_cover_the_required_minimum(service):
     assert figures["total_liabilities"]["value"] == pytest.approx(2_466_081.47)
     # This statement reports no separate "Total equity" row.
     assert figures["total_equity"]["value"] is None
+
+
+# ---------------------------------------------------------------------------
+# Regression: captions as real published statements actually print them
+# ---------------------------------------------------------------------------
+def test_bare_total_is_resolved_by_its_section(service):
+    """Real statements print "Total" once per section, not "Total Assets".
+
+    Without section-aware matching every check on these documents came back
+    NOT_APPLICABLE - the extraction was correct and the matcher was not.
+    """
+    result = service.validate(
+        factories.real_balance_sheet(), document_type=DocumentType.BALANCE_SHEET
+    )
+    check = by_name(result.checks, "balance_sheet_equation_check", CURRENT)
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(4_030_194.26)
+    assert not [c for c in result.checks if c.status is CheckStatus.NOT_APPLICABLE]
+
+
+def test_printed_dash_is_nil_so_section_sums_still_run(service):
+    """A "-" cell is reported as zero, not absent.
+
+    Two rows in this statement carry a dash. Treating those as missing made
+    the component-sum check NOT_APPLICABLE for a period that reconciles fine.
+    """
+    result = service.validate(
+        factories.real_balance_sheet(), document_type=DocumentType.BALANCE_SHEET
+    )
+    for period in (CURRENT, PRIOR):
+        for section in ("capital and liabilities", "assets"):
+            check = next(
+                c for c in result.checks
+                if c.name.startswith("section_sum_check") and section in c.name
+                and c.period == period
+            )
+            assert check.status is CheckStatus.PASS, (section, period)
+
+
+def test_real_profit_and_loss_captions_all_resolve(service):
+    result = service.validate(
+        factories.real_profit_and_loss(),
+        document_type=DocumentType.PROFIT_AND_LOSS,
+    )
+    assert result.overall_status is ValidationStatus.PASS
+    assert not [c for c in result.checks if c.status is CheckStatus.NOT_APPLICABLE]
+
+    # "minorities' interest" must match the same concept as "minority interest".
+    profit = by_name(result.checks, "net_profit_before_minority_interest_check", CURRENT)
+    assert profit.calculated_value == pytest.approx(38_150.90)
+
+    # The deduction is "Less : Minorities' Interest" (98.15), not the
+    # "Transfer to / (from) Minority Interest" appropriation line.
+    group = by_name(result.checks, "net_profit_attributable_to_group_check", CURRENT)
+    assert group.operands["minority_interest"] == pytest.approx(98.15)
+    assert group.calculated_value == pytest.approx(38_052.75)
+
+    # "Add: Brought forward ... attributable to the group" must not be mistaken
+    # for the attributable-profit row itself.
+    appropriation = by_name(result.checks, "appropriation_check", CURRENT)
+    assert appropriation.operands["profit_brought_forward"] == pytest.approx(78_594.20)
+    assert appropriation.calculated_value == pytest.approx(116_646.95)
+
+
+def test_taxable_base_falls_back_to_the_line_items(service):
+    """Till receipts often print no subtotal; the line sum is the only base."""
+    result = service.validate(
+        factories.receipt_without_subtotal(), document_type=DocumentType.INVOICE
+    )
+    check = by_name(result.checks, "invoice_total_check")
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(9.00)
+    assert "sum(line_item.amount)" in check.formula
+
+
+def test_tax_treatment_is_derived_from_the_figures_not_the_flag(service):
+    """The model called this invoice tax-inclusive; the arithmetic disagrees.
+
+    Trusting the flag produced a spurious FAIL with a variance of exactly the
+    tax amount, which is the signature of double-counting it.
+    """
+    result = service.validate(
+        factories.gst_invoice_mislabelled_inclusive(),
+        document_type=DocumentType.INVOICE,
+    )
+    check = by_name(result.checks, "invoice_total_check")
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(6_862.00)
+    assert check.operands["tax_amount"] == pytest.approx(1_046.72)
+    assert "document states: inclusive" in check.description
+
+
+def test_genuinely_inclusive_total_is_not_double_counted(service):
+    """The opposite case must still work: tax inside the printed total."""
+    result = service.validate(
+        factories.receipt_tax_inclusive(), document_type=DocumentType.INVOICE
+    )
+    check = by_name(result.checks, "invoice_total_check")
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(18.00)
+    assert "already included" in check.formula
+
+
+def test_a_real_total_mismatch_still_fails(service):
+    """Deriving the treatment must not turn every invoice into a pass."""
+    result = service.validate(
+        factories.invoice(consistent=False), document_type=DocumentType.INVOICE
+    )
+    assert by_name(result.checks, "invoice_total_check").status is CheckStatus.FAIL

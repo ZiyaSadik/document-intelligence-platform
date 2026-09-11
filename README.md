@@ -352,6 +352,14 @@ support. A `NOT_APPLICABLE` check never fails a document.
 
 Parenthesised figures are parsed as negative before any rule runs.
 
+**A printed dash is nil; a blank is absent.** In a financial statement `-` is
+the standard notation for zero — the document *does* report the value — whereas
+a cell the model could not read is genuinely unknown. `parse_money` returns
+`0.0` for `-`, `–`, `—` and `Nil`, and `None` for `N/A`, `not reported` and an
+empty cell. Collapsing the two either invents a zero or discards a real one; on
+the sample balance sheet it was the difference between four reconciliations
+running and four returning `NOT_APPLICABLE`.
+
 ### Invoice
 
 | Check | Formula |
@@ -420,13 +428,26 @@ captions like `"II. Total Expenditure"` or
 tokens, alternatives and disqualifiers, matched on a normalised caption
 (case-folded, punctuation stripped, leading enumerators removed).
 
-Two details that matter in practice:
+Three details that matter in practice, each found by running the real corpus:
 
+- **Matching is section-aware.** Real published statements do not print
+  "Total Income" — they print a bare **`Total`** once per section and let the
+  heading (`I INCOME`, `II EXPENDITURE`) say which total it is. A rule may gate
+  on the row's section, and a concept may carry several rules; the best match
+  across all of them wins. Before this, every check on those documents came
+  back `NOT_APPLICABLE` — the extraction was correct and the matcher was not.
+- **Rows with no figure in any period are excluded.** The section heading
+  `"Cash flows from operating activities:"` reads exactly like the concept and
+  would otherwise out-rank the real subtotal row beneath it.
 - An exact caption match always beats a token match, so `"Total Income"` never
-  loses to `"Total Income from operations"`.
-- **Rows with no figure in any period are excluded from matching.** The section
-  heading `"Cash flows from operating activities:"` reads exactly like the
-  concept and would otherwise out-rank the real subtotal row beneath it.
+  loses to `"Total Income from operations"`, and disqualifying tokens keep
+  `"Add: Brought forward consolidated profit attributable to the group"` from
+  being mistaken for the attributable-profit row itself.
+
+Captions are matched on stems where the wording varies —
+`"Less : Minorities' Interest"` and `"Minority interest"` resolve to the same
+concept. `tests/test_extraction.py` pins these against captions copied verbatim
+from the supplied corpus.
 
 ---
 
@@ -518,7 +539,7 @@ Dockerfile · render.yaml · .env.example · .gitignore
 cd backend && pytest
 ```
 
-**107 tests, no network access** — the Anthropic client is stubbed throughout,
+**111 tests, no network access** — the Anthropic client is stubbed throughout,
 so the suite runs identically in CI and with no API key.
 
 - `test_validation.py` — unsupported type, extension/magic-byte mismatch, empty,
@@ -574,9 +595,10 @@ python scripts/generate_samples.py --only invoice
 6. **No authentication.** The API is open, as the brief's evaluation flow needs.
 7. **`overall_confidence` is a heuristic**, deliberately explainable rather than
    calibrated. It has not been validated against labelled ground truth.
-8. **The Docker image has not been built and run locally** (the Docker daemon
-   was unavailable on the development machine), though it uses only wheel-based
-   dependencies and no system packages.
+8. **Extraction is the slow step**: 45–60 s for a rasterised statement page on
+   `claude-opus-5`. `claude-sonnet-5` is materially faster and cheaper; set
+   `ANTHROPIC_MODEL` if throughput matters more than the last few percent of
+   accuracy.
 
 ---
 

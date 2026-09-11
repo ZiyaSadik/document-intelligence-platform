@@ -64,6 +64,8 @@ normalise, expand abbreviations or tidy up capitalisation.
 INVOICE_PROMPT = """\
 This document is an INVOICE or a RETAIL RECEIPT.
 
+Return one entry in `fields` for each recognised field the document actually reports, using the exact `name` from the allowed list. Omit a field entirely rather than including it with a null value.
+
 Extract:
 - Every header field: invoice/receipt number, dates, purchase-order number.
 - Both parties: seller/vendor and customer, with addresses and any tax \
@@ -72,7 +74,9 @@ registration number (GST/VAT/TIN).
 - Every monetary summary line: subtotal, discount, tax, rounding adjustment, \
 total, cash tendered and change given.
 - Every line item in the items table, with its description, quantity, unit \
-price and line total. Include all of them, including ones with no price.
+price and line total. Include all of them, including ones with no price. \
+Quantity is normally its own column: report it even when the description also \
+mentions a pack size, and even when it is written as "2 PCS" or "1 x".
 - Anything else that is labelled on the document goes into additional_fields.
 
 Set tax_inclusive to true when the document states the total already includes \

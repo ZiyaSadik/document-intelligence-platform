@@ -159,8 +159,8 @@ class FinancialValidationService:
     # ------------------------------------------------------------------
     def _validate_invoice(self, data: InvoiceExtraction) -> list[ValidationCheck]:
         def money(field_name: str) -> float | None:
-            named = getattr(data, field_name, None)
-            return parse_money(named.raw_value) if named else None
+            entry = data.field(field_name)
+            return parse_money(entry.raw_value) if entry else None
 
         subtotal = money("subtotal")
         tax = money("tax_amount")
@@ -217,34 +217,60 @@ class FinancialValidationService:
             )
         )
 
-        # 3. Subtotal + tax - discount = total. When the document says tax is
-        #    already inside the printed total, adding it again would be wrong,
-        #    so the check becomes subtotal-only.
-        tax_inclusive = data.tax_inclusive is True
-        if tax_inclusive:
-            operands: Operands = {"subtotal": subtotal, "discount": discount}
-            calculated = (
-                subtotal - (discount or 0.0) + (rounding or 0.0)
-                if subtotal is not None
-                else None
-            )
-            formula = "subtotal - discount (+ rounding); tax already included"
+        # 3. Taxable amount + tax - discount = total.
+        #
+        #    Two things make this less trivial than it looks. Retail receipts
+        #    often print no subtotal at all, so the line-item sum is the only
+        #    taxable base available. And whether tax is added on top or already
+        #    inside the printed total cannot be taken from the model's
+        #    `tax_inclusive` flag - on the sample GST invoice it said
+        #    "inclusive" when subtotal + tax lands exactly on the total.
+        #
+        #    So the treatment is derived from the reported figures: whichever
+        #    reading the document's own numbers support is the one applied, and
+        #    the check says which it used. That is reading the document, not
+        #    guessing at it - and when neither reading reconciles, the check
+        #    fails under the declared treatment rather than quietly passing.
+        base = subtotal if subtotal is not None else line_sum
+        base_name = "subtotal" if subtotal is not None else "sum(line_item.amount)"
+        adjustment = (rounding or 0.0) - (discount or 0.0)
+
+        additive = base + (tax or 0.0) + adjustment if base is not None else None
+        inclusive = base + adjustment if base is not None else None
+
+        treatment = self._tax_treatment(
+            declared=data.tax_inclusive,
+            additive=additive,
+            inclusive=inclusive,
+            total=total,
+            tax=tax,
+        )
+        if treatment == "inclusive":
+            calculated = inclusive
+            operands: Operands = {base_name: base, "discount": discount}
+            formula = f"{base_name} - discount (+ rounding); tax already included"
+            note = "The printed total already includes tax."
         else:
-            operands = {"subtotal": subtotal, "tax_amount": tax, "discount": discount}
-            calculated = (
-                subtotal + (tax or 0.0) - (discount or 0.0) + (rounding or 0.0)
-                if subtotal is not None
-                else None
-            )
-            formula = "subtotal + tax_amount - discount (+ rounding)"
+            calculated = additive
+            operands = {base_name: base, "tax_amount": tax, "discount": discount}
+            formula = f"{base_name} + tax_amount - discount (+ rounding)"
+            note = "Tax is added on top of the taxable amount."
         if rounding is not None:
             operands["rounding_adjustment"] = rounding
+
+        declared = (
+            "inclusive" if data.tax_inclusive is True
+            else "exclusive" if data.tax_inclusive is False
+            else "unstated"
+        )
         checks.append(
             self._check(
                 name="invoice_total_check",
                 description=(
                     "The taxable amount plus tax, less any discount, should "
-                    "equal the reported total."
+                    f"equal the reported total. {note} Tax treatment was "
+                    f"derived from the reported figures (document states: "
+                    f"{declared})."
                 ),
                 formula=formula,
                 operands=operands,
@@ -269,6 +295,51 @@ class FinancialValidationService:
             )
         )
         return checks
+
+    def _tax_treatment(
+        self,
+        *,
+        declared: bool | None,
+        additive: float | None,
+        inclusive: float | None,
+        total: float | None,
+        tax: float | None,
+    ) -> str:
+        """Decide whether tax sits on top of the taxable amount or inside it.
+
+        Preference order: whichever reading the reported figures actually
+        support, then what the document declared, then additive. With no tax
+        reported the two readings are identical and the choice is moot.
+        """
+        if tax in (None, 0.0):
+            return "exclusive"
+
+        def fits(value: float | None) -> bool:
+            return (
+                value is not None
+                and total is not None
+                and within_tolerance(
+                    value,
+                    total,
+                    abs_tolerance=self._tolerance.absolute,
+                    rel_tolerance=self._tolerance.relative,
+                )
+            )
+
+        additive_fits, inclusive_fits = fits(additive), fits(inclusive)
+        if additive_fits != inclusive_fits:
+            return "exclusive" if additive_fits else "inclusive"
+        if additive_fits and inclusive_fits and total is not None:
+            # Both readings land inside the allowance, which happens when the
+            # tax is small relative to it. Take the closer one.
+            if abs(additive - total) != abs(inclusive - total):
+                return (
+                    "exclusive"
+                    if abs(additive - total) < abs(inclusive - total)
+                    else "inclusive"
+                )
+        # Genuinely indistinguishable: defer to what the document said.
+        return "inclusive" if declared is True else "exclusive"
 
     # ------------------------------------------------------------------
     # Statements

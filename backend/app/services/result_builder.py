@@ -22,6 +22,7 @@ from app.schemas.document import Evidence, ExtractedField, ValidationCheck
 from app.schemas.enums import CheckStatus, DocumentType
 from app.schemas.extraction import (
     InvoiceExtraction,
+    InvoiceField,
     NamedValue,
     StatementExtraction,
     StatementLineItem,
@@ -132,7 +133,7 @@ def _build_invoice(
 
     for name in INVOICE_TEXT_FIELDS:
         field = _field_from_named(
-            getattr(data, name, None),
+            data.field(name),
             numeric=False,
             used_ocr=used_ocr,
             verdict=verdicts.get(name),
@@ -142,7 +143,7 @@ def _build_invoice(
 
     for name in INVOICE_MONETARY_FIELDS:
         field = _field_from_named(
-            getattr(data, name, None),
+            data.field(name),
             numeric=True,
             used_ocr=used_ocr,
             verdict=verdicts.get(name),
@@ -281,7 +282,7 @@ def _key_figures(
 # Shared
 # ---------------------------------------------------------------------------
 def _field_from_named(
-    named: NamedValue | None,
+    named: NamedValue | InvoiceField | None,
     *,
     numeric: bool,
     used_ocr: bool,

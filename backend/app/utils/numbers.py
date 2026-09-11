@@ -21,10 +21,18 @@ _CURRENCY_AND_NOISE = re.compile(
     r"|(?i:rs\.?|inr|usd|eur|gbp|rm|myr|sgd|aed)"
 )
 
-# Strings that explicitly mean "nothing reported here".
-_NULL_TOKENS = frozenset(
-    {"", "-", "--", "---", "\u2013", "\u2014", "\u2212", "nil", "n/a", "na",
-     "none", "null", "not applicable", "\u2013\u2013"}
+# A printed dash is not the same as a blank cell, and the difference matters.
+# In a financial statement "-" is the standard notation for nil - the document
+# *does* report the value, as zero - whereas an absent value means it does not
+# say. Collapsing the two would either invent a zero or discard a real one, and
+# it decides whether a reconciliation runs or returns NOT_APPLICABLE.
+_NIL_TOKENS = frozenset(
+    {"-", "--", "---", "\u2013", "\u2014", "\u2212", "\u2013\u2013", "nil", "nill"}
+)
+
+# Strings that mean "the document does not report this".
+_ABSENT_TOKENS = frozenset(
+    {"", "n/a", "na", "n.a.", "none", "null", "not applicable", "not reported"}
 )
 
 _NUMERIC = re.compile(r"^[+-]?\d+(\.\d+)?$")
@@ -37,15 +45,19 @@ NUMBER_IN_TEXT = re.compile(r"[-+(]?\s*\d[\d,\u00a0 ]*(?:\.\d+)?\s*\)?")
 def parse_money(raw: Any) -> float | None:
     """Parse a monetary/quantity token into a float.
 
-    Returns ``None`` for anything that does not represent a number -- never a
+    Returns ``None`` when the document does not report a value -- never a
     substituted zero, because a missing operand must propagate as
-    ``NOT_APPLICABLE`` rather than quietly reconciling to nothing.
+    ``NOT_APPLICABLE`` rather than quietly reconciling to nothing. A *printed*
+    dash is a different thing: it is the accounting notation for nil, so it
+    parses as ``0.0``.
 
     >>> parse_money("(1,234.56)")
     -1234.56
     >>> parse_money("\u20b9 1,23,456.78")
     123456.78
-    >>> parse_money("-") is None
+    >>> parse_money("-")            # printed dash: reported as nil
+    0.0
+    >>> parse_money("N/A") is None  # not reported at all
     True
     """
     if raw is None:
@@ -60,7 +72,10 @@ def parse_money(raw: Any) -> float | None:
         return None
 
     text = raw.strip()
-    if text.lower() in _NULL_TOKENS:
+    lowered = text.lower()
+    if lowered in _NIL_TOKENS:
+        return 0.0
+    if lowered in _ABSENT_TOKENS:
         return None
 
     negative = False
@@ -86,7 +101,11 @@ def parse_money(raw: Any) -> float | None:
 
     text = text.replace(",", "")
 
-    if text.lower() in _NULL_TOKENS or not text:
+    if not text:
+        return None
+    if text.lower() in _NIL_TOKENS:
+        return 0.0
+    if text.lower() in _ABSENT_TOKENS:
         return None
 
     if not _NUMERIC.match(text):
@@ -114,19 +133,21 @@ def within_tolerance(
     abs_tolerance: float,
     rel_tolerance: float,
 ) -> bool:
-    """True when two figures agree within absolute *or* relative tolerance.
+    """True when two figures agree within the combined allowance.
 
-    Both are needed: an absolute-only rule is far too strict on figures in the
-    hundreds of thousands of crore, while a relative-only rule is far too
-    strict near zero.
+    The allowance is ``abs_tolerance + rel_tolerance * scale``, not one *or*
+    the other. An OR rule is too permissive at both ends: a 0.5% relative limit
+    lets a 20,000-crore discrepancy through on a large balance sheet, while an
+    absolute limit generous enough for a statement is 11% of a 9.00 till
+    receipt - loose enough to make two contradictory readings both "pass".
+
+    The absolute term absorbs rounding at the printed precision (a sum of
+    twenty figures each rounded to 2dp can drift ~0.1); the relative term is a
+    small safety valve so that drift can grow with magnitude.
     """
     delta = abs(calculated - reported)
-    if delta <= abs_tolerance:
-        return True
     scale = max(abs(calculated), abs(reported))
-    if scale == 0:
-        return delta == 0
-    return (delta / scale) <= rel_tolerance
+    return delta <= abs_tolerance + rel_tolerance * scale
 
 
 def safe_sum(values: list[float | None]) -> float | None:

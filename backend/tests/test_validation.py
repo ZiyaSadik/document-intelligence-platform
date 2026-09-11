@@ -144,10 +144,14 @@ def test_sanitise_filename(given, expected):
         ("\u2212500", -500.0),               # Unicode minus
         (1234, 1234.0),
         (12.5, 12.5),
-        ("-", None),
-        ("\u2014", None),
-        ("Nil", None),
+        # A printed dash or "Nil" is the accounting notation for zero. The
+        # document does report it, so it must not become a missing operand.
+        ("-", 0.0),
+        ("\u2014", 0.0),
+        ("Nil", 0.0),
+        # These mean the document does not report the value at all.
         ("N/A", None),
+        ("not reported", None),
         ("", None),
         (None, None),
         ("not a number", None),

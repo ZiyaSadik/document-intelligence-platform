@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from app.schemas.extraction import (
     InvoiceExtraction,
+    InvoiceField,
     InvoiceLineItem,
     NamedValue,
     PeriodValue,
@@ -176,20 +177,29 @@ def cash_flow(*, consistent: bool = True, with_fx: bool = True) -> StatementExtr
 # ---------------------------------------------------------------------------
 # Invoice
 # ---------------------------------------------------------------------------
+def ifield(name: str, value: str | None, *, source: str | None = None, page: int = 1):
+    return InvoiceField(
+        name=name, raw_value=value, source_text=source, page_number=page
+    )
+
+
 def invoice(*, consistent: bool = True, tax_inclusive: bool = False) -> InvoiceExtraction:
     total = "13,125.00" if consistent else "14,000.00"
     return InvoiceExtraction(
-        invoice_number=named("INV-23891", source="Invoice No: INV-23891"),
-        invoice_date=named("2026-08-15", source="Date: 15/08/2026"),
-        vendor_name=named("ABC Technologies Sdn Bhd", source="ABC Technologies Sdn Bhd"),
-        customer_name=named("Northwind Retail"),
-        currency=named("USD", source="Amounts in USD"),
-        subtotal=named("12,500.00", source="Subtotal 12,500.00"),
-        tax_amount=named("625.00", source="Tax (5%) 625.00"),
-        discount=named("0.00", source="Discount 0.00"),
-        total_amount=named(total, source=f"Total Amount Due: USD {total}"),
-        cash_paid=named("15,000.00", source="Cash 15,000.00"),
-        change=named("1,875.00", source="Change 1,875.00"),
+        fields=[
+            ifield("invoice_number", "INV-23891", source="Invoice No: INV-23891"),
+            ifield("invoice_date", "2026-08-15", source="Date: 15/08/2026"),
+            ifield("vendor_name", "ABC Technologies Sdn Bhd",
+                   source="ABC Technologies Sdn Bhd"),
+            ifield("customer_name", "Northwind Retail"),
+            ifield("currency", "USD", source="Amounts in USD"),
+            ifield("subtotal", "12,500.00", source="Subtotal 12,500.00"),
+            ifield("tax_amount", "625.00", source="Tax (5%) 625.00"),
+            ifield("discount", "0.00", source="Discount 0.00"),
+            ifield("total_amount", total, source=f"Total Amount Due: USD {total}"),
+            ifield("cash_paid", "15,000.00", source="Cash 15,000.00"),
+            ifield("change", "1,875.00", source="Change 1,875.00"),
+        ],
         tax_inclusive=tax_inclusive,
         line_items=[
             InvoiceLineItem(
@@ -207,16 +217,145 @@ def invoice(*, consistent: bool = True, tax_inclusive: bool = False) -> InvoiceE
 def receipt_tax_inclusive() -> InvoiceExtraction:
     """A retail receipt where the printed total already contains GST."""
     return InvoiceExtraction(
-        vendor_name=named("SYARIKAT PERNIAGAAN GIN KEE"),
-        currency=named("RM"),
-        subtotal=named("18.00", source="Total Sales (Inclusive of GST) 18.00"),
-        tax_amount=named("1.02", source="GST @6% 1.02"),
-        total_amount=named("18.00", source="Total 18.00"),
-        cash_paid=named("20.00", source="Cash 20.00"),
-        change=named("2.00", source="Change 2.00"),
+        fields=[
+            ifield("vendor_name", "SYARIKAT PERNIAGAAN GIN KEE"),
+            ifield("currency", "RM"),
+            ifield("subtotal", "18.00",
+                   source="Total Sales (Inclusive of GST) 18.00"),
+            ifield("tax_amount", "1.02", source="GST @6% 1.02"),
+            ifield("total_amount", "18.00", source="Total 18.00"),
+            ifield("cash_paid", "20.00", source="Cash 20.00"),
+            ifield("change", "2.00", source="Change 2.00"),
+        ],
         tax_inclusive=True,
         line_items=[
             InvoiceLineItem(description="KF MODELLING CLAY", quantity="2",
                             unit_price="9.00", amount="18.00", page_number=1)
         ],
+    )
+
+
+# ---------------------------------------------------------------------------
+# Captions taken verbatim from the supplied corpus
+# ---------------------------------------------------------------------------
+# These reproduce the wording real published statements actually use, which
+# differs from the idealised captions above in ways that broke the first
+# version of the matcher: totals printed as a bare "Total" and disambiguated
+# only by their section heading, "minorities' interest" rather than "minority
+# interest", and a brought-forward row that also mentions "attributable to the
+# group".
+def real_balance_sheet() -> StatementExtraction:
+    return statement(
+        [
+            row("Capital", "759.69", "557.97", section="CAPITAL AND LIABILITIES"),
+            row("Employees stock options outstanding", "2,652.72", "1,117.20",
+                section="CAPITAL AND LIABILITIES"),
+            row("Reserves and surplus", "452,982.84", "287,762.33",
+                section="CAPITAL AND LIABILITIES"),
+            row("Minority interest", "13,383.40", "860.26",
+                section="CAPITAL AND LIABILITIES"),
+            row("Deposits", "2,376,887.28", "1,882,663.25",
+                section="CAPITAL AND LIABILITIES"),
+            row("Borrowings", "730,615.46", "256,548.66",
+                section="CAPITAL AND LIABILITIES"),
+            row("Other liabilities and provisions", "174,832.07", "100,922.77",
+                section="CAPITAL AND LIABILITIES"),
+            row("Policyholders' funds", "278,080.80", "-",
+                section="CAPITAL AND LIABILITIES"),
+            row("Total", "4,030,194.26", "2,530,432.44",
+                section="CAPITAL AND LIABILITIES", is_total=True),
+            row("Cash and balances with Reserve Bank of India", "178,718.67",
+                "117,189.28", section="ASSETS"),
+            row("Balances with banks and money at call and short notice",
+                "50,115.84", "79,958.53", section="ASSETS"),
+            row("Investments", "1,005,681.63", "511,581.71", section="ASSETS"),
+            row("Advances", "2,565,891.41", "1,661,949.29", section="ASSETS"),
+            row("Fixed assets", "12,603.76", "8,282.56", section="ASSETS"),
+            row("Other assets", "217,182.95", "151,322.28", section="ASSETS"),
+            row("Goodwill on Consolidation", "-", "148.79", section="ASSETS"),
+            row("Total", "4,030,194.26", "2,530,432.44",
+                section="ASSETS", is_total=True),
+            row("Contingent liabilities", "2,344,487.73", "1,750,953.81"),
+        ],
+        title="Consolidated Balance Sheet",
+    )
+
+
+def real_profit_and_loss() -> StatementExtraction:
+    return statement(
+        [
+            row("Interest earned", "135,936.41", "128,552.40", section="I INCOME"),
+            row("Other income", "31,758.99", "27,332.88", section="I INCOME"),
+            row("Total", "167,695.40", "155,885.28", section="I INCOME",
+                is_total=True),
+            row("Interest expended", "58,584.33", "59,247.59",
+                section="II EXPENDITURE"),
+            row("Operating expenses", "40,312.43", "35,001.26",
+                section="II EXPENDITURE"),
+            row("Provisions and contingencies [Refer Schedule 18 (12)]",
+                "30,647.74", "29,779.66", section="II EXPENDITURE"),
+            row("Total", "129,544.50", "124,028.51", section="II EXPENDITURE",
+                is_total=True),
+            row("Consolidated Net Profit for the year before minorities' interest",
+                "38,150.90", "31,856.77", section="III PROFIT"),
+            row("Less : Minorities' Interest", "98.15", "23.56",
+                section="III PROFIT"),
+            row("Consolidated Net Profit for the year attributable to the group",
+                "38,052.75", "31,833.21", section="III PROFIT"),
+            row("Add: Brought forward consolidated profit attributable to the "
+                "group", "78,594.20", "61,817.68", section="III PROFIT"),
+            row("Total", "116,646.95", "93,650.89", section="III PROFIT",
+                is_total=True),
+            row("Transfer to Statutory Reserve", "9,444.38", "7,879.70",
+                section="IV APPROPRIATIONS"),
+            row("Transfer to / (from) Minority Interest (opening adjustment)",
+                "(48.34)", "-", section="IV APPROPRIATIONS"),
+            row("Total", "116,646.95", "93,650.89", section="IV APPROPRIATIONS",
+                is_total=True),
+        ],
+        title="Consolidated Profit and Loss Account",
+    )
+
+
+def receipt_without_subtotal() -> InvoiceExtraction:
+    """A till receipt that prints no subtotal line at all.
+
+    Total 9.00 = item 8.49 + GST 0.51. The taxable base has to come from the
+    line items, because the document never states one.
+    """
+    return InvoiceExtraction(
+        fields=[
+            ifield("vendor_name", "FUYI MINI MARKET"),
+            ifield("invoice_number", "1CR0576494"),
+            ifield("tax_amount", "0.51", source="GST 0.51"),
+            ifield("total_amount", "9.00", source="TOTAL 9.00"),
+            ifield("cash_paid", "50.00"),
+            ifield("change", "41.00"),
+        ],
+        tax_inclusive=True,
+        line_items=[
+            InvoiceLineItem(description="013 SUMMER CUP 48X230ML", quantity="1",
+                            unit_price="8.49", amount="8.49", page_number=1)
+        ],
+    )
+
+
+def gst_invoice_mislabelled_inclusive() -> InvoiceExtraction:
+    """A GST invoice whose figures show tax added on top.
+
+    5,815.17 + 1,046.72 + 0.11 rounding = 6,862.00. The document was read as
+    "inclusive", which the arithmetic contradicts.
+    """
+    return InvoiceExtraction(
+        fields=[
+            ifield("vendor_name", "Shankar Enterprises"),
+            ifield("invoice_number", "SCI/25-26/3331"),
+            ifield("currency", "\u20b9"),
+            ifield("subtotal", "5,815.17"),
+            ifield("tax_amount", "1,046.72"),
+            ifield("rounding_adjustment", "0.11"),
+            ifield("total_amount", "6,862.00"),
+        ],
+        tax_inclusive=True,
+        line_items=[],
     )

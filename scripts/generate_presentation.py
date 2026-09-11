@@ -200,7 +200,7 @@ def s_title(p):
         ],
     )
     for index, (value, label) in enumerate(
-        [("4", "document types"), ("107", "automated tests"),
+        [("4", "document types"), ("111", "automated tests"),
          ("13", "reconciliation rules"), ("1", "deployed service")]
     ):
         x = 1.0 + index * 2.45
@@ -685,7 +685,7 @@ def s_quality(p):
     )
 
     cells = [
-        ("Testing", "107 tests, zero network",
+        ("Testing", "111 tests, zero network",
          "The Anthropic client is stubbed throughout, so the suite runs the "
          "same in CI and with no API key."),
         ("Logging", "Structured, correlated",
@@ -869,7 +869,7 @@ def s_close(p):
             {"text": "README with setup, API reference, validation rules and "
                      "tolerance\n\nArchitecture diagram\n\nDeployment "
                      "runbook\n\nSample JSON outputs from the real pipeline\n\n"
-                     "107 automated tests",
+                     "111 automated tests",
              "size": 10.5, "color": MUTED_LIGHT},
         ],
     )

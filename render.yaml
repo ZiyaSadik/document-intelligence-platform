@@ -37,9 +37,9 @@ services:
       - key: RASTER_DPI
         value: "200"
       - key: VALIDATION_ABS_TOLERANCE
-        value: "1.0"
+        value: "0.1"
       - key: VALIDATION_REL_TOLERANCE
-        value: "0.005"
+        value: "0.00001"
       - key: LOG_LEVEL
         value: INFO
       - key: LOG_JSON

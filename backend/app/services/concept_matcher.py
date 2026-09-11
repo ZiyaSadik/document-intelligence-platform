@@ -63,10 +63,14 @@ class ConceptRule:
     any_of: tuple[tuple[str, ...], ...] = ()
     #: A caption containing any of these is rejected outright.
     must_not_contain: tuple[str, ...] = ()
+    #: When set, the row's *section heading* must contain one of these. This is
+    #: what makes a bare "Total" resolvable: real statements print the caption
+    #: once per section and rely on the heading to say which total it is.
+    section_any: tuple[str, ...] = ()
     #: Rows flagged as totals are preferred when several captions match.
     prefer_total: bool = True
 
-    def matches(self, normalised: str) -> int:
+    def matches(self, normalised: str, section: str = "") -> int:
         """Score a caption: 2 = exact, 1 = token match, 0 = no match."""
         if not normalised:
             return 0
@@ -81,6 +85,8 @@ class ConceptRule:
         for group in self.any_of:
             if not any(token in normalised for token in group):
                 return 0
+        if self.section_any and not any(t in section for t in self.section_any):
+            return 0
         if not self.must_contain and not self.any_of:
             return 0
         return 1
@@ -102,11 +108,25 @@ BALANCE_SHEET_CONCEPTS: tuple[ConceptRule, ...] = (
         any_of=(("liabilities",),),
         must_not_contain=("asset", "current liabilities", "contingent"),
     ),
+    # Many statements print the caption as a bare "Total" and leave the
+    # section heading to say which total it is.
+    ConceptRule(
+        concept="total_capital_and_liabilities",
+        must_contain=("total",),
+        section_any=("liabilities", "equity"),
+        must_not_contain=("asset", "contingent"),
+    ),
     ConceptRule(
         concept="total_assets",
         exact=("total assets",),
         must_contain=("total", "assets"),
         must_not_contain=("current assets", "fixed assets", "other assets"),
+    ),
+    ConceptRule(
+        concept="total_assets",
+        must_contain=("total",),
+        section_any=("assets",),
+        must_not_contain=("liabilities", "contingent"),
     ),
     ConceptRule(
         concept="total_equity",
@@ -148,6 +168,12 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
         must_not_contain=("expenditure", "expense", "comprehensive", "other income"),
     ),
     ConceptRule(
+        concept="total_income",
+        must_contain=("total",),
+        section_any=("income", "revenue"),
+        must_not_contain=("expenditure", "expense"),
+    ),
+    ConceptRule(
         concept="interest_expended",
         exact=("interest expended", "interest expense", "finance costs"),
         must_contain=("interest",),
@@ -175,6 +201,12 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
         must_not_contain=("income", "operating expenses"),
     ),
     ConceptRule(
+        concept="total_expenditure",
+        must_contain=("total",),
+        section_any=("expenditure", "expenses"),
+        must_not_contain=("income",),
+    ),
+    ConceptRule(
         concept="profit_before_minority_interest",
         exact=(
             "consolidated net profit for the year before minority interest",
@@ -182,13 +214,17 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
             "profit before minority interest",
             "consolidated net profit before minority interest",
         ),
-        must_contain=("profit", "before", "minority"),
+        must_contain=("profit", "before", "minorit"),
     ),
     ConceptRule(
         concept="minority_interest",
         exact=("minority interest", "less minority interest", "non controlling interest"),
-        must_contain=("minority",),
-        must_not_contain=("before", "after", "attributable"),
+        must_contain=("minorit",),
+        must_not_contain=(
+            # "Transfer to / (from) Minority Interest" is an appropriation
+            # line, not the deduction the reconciliation needs.
+            "before", "after", "attributable", "transfer", "increase", "opening",
+        ),
     ),
     ConceptRule(
         concept="net_profit_attributable_to_group",
@@ -200,6 +236,7 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
         ),
         must_contain=("profit", "attributable"),
         any_of=(("group", "owners", "parent"),),
+        must_not_contain=("brought forward", "carried"),
     ),
     ConceptRule(
         concept="profit_brought_forward",
@@ -220,6 +257,12 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
         ),
         must_contain=("appropriation",),
         any_of=(("total", "available"),),
+    ),
+    ConceptRule(
+        concept="total_available_for_appropriation",
+        must_contain=("total",),
+        section_any=("profit", "appropriation"),
+        must_not_contain=("income", "expenditure"),
     ),
 )
 
@@ -319,27 +362,33 @@ class ConceptMatch:
 
 def resolve_concepts(
     rules: tuple[ConceptRule, ...],
-    rows: list[tuple[str, bool]],
+    rows: list[tuple[str, bool, str]],
 ) -> dict[str, int]:
     """Pick the best row index for each concept.
 
-    ``rows`` is ``(caption, is_total)`` in document order. Ranking is exact
-    match, then total rows, then document order - the first "Total Income"-ish
-    caption on the page is the one the statement means.
+    ``rows`` is ``(caption, is_total, section)`` in document order. Ranking is
+    exact match, then total rows, then document order.
+
+    A concept may have more than one rule - typically a label-only rule for
+    documents that spell the caption out ("Total Income") and a section-gated
+    rule for those that do not ("Total", under a heading of "I INCOME"). The
+    best match across every rule for that concept wins.
     """
-    normalised = [normalise_label(caption) for caption, _ in rows]
+    captions = [normalise_label(caption) for caption, _, _ in rows]
+    sections = [normalise_label(section) for _, _, section in rows]
+
+    best_by_concept: dict[str, tuple[int, int, int]] = {}
     resolved: dict[str, int] = {}
 
     for rule in rules:
-        best: tuple[int, int, int] | None = None  # (score, is_total, -index)
-        for index, text in enumerate(normalised):
-            score = rule.matches(text)
+        for index, caption in enumerate(captions):
+            score = rule.matches(caption, sections[index])
             if score == 0:
                 continue
             is_total = 1 if (rule.prefer_total and rows[index][1]) else 0
             candidate = (score, is_total, -index)
-            if best is None or candidate > best:
-                best = candidate
+            if candidate > best_by_concept.get(rule.concept, (0, 0, -10**9)):
+                best_by_concept[rule.concept] = candidate
                 resolved[rule.concept] = index
 
     return resolved
@@ -370,11 +419,19 @@ def has_any_value(item: "StatementLineItem") -> bool:
     return any(parse_money(cell.raw_value) is not None for cell in item.values)
 
 
-def candidate_rows(items: list["StatementLineItem"]) -> list[tuple[str, bool]]:
-    """``(caption, is_total)`` pairs for concept matching, headings blanked out.
+def candidate_rows(
+    items: list["StatementLineItem"],
+) -> list[tuple[str, bool, str]]:
+    """``(caption, is_total, section)`` triples for concept matching.
 
-    Positions are preserved so a resolved index still addresses ``items``.
+    Rows carrying no figure in any period are blanked out. Positions are
+    preserved so a resolved index still addresses ``items``.
     """
     return [
-        (item.label if has_any_value(item) else "", item.is_total) for item in items
+        (
+            item.label if has_any_value(item) else "",
+            item.is_total,
+            item.section or "",
+        )
+        for item in items
     ]
