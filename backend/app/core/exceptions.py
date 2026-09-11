@@ -116,6 +116,17 @@ class ModelUnavailableError(ExtractionError):
     message = "The extraction service is temporarily unavailable. Please retry."
 
 
+class ModelQuotaExceededError(ExtractionError):
+    """Anthropic credit, billing or usage-quota exhaustion."""
+
+    code = "MODEL_QUOTA_EXCEEDED"
+    status_code = 503
+    message = (
+        "The extraction service has exhausted its Anthropic API credits "
+        "or usage quota. Top up the account and retry."
+    )
+
+
 class ModelNotConfiguredError(ExtractionError):
     code = "MODEL_NOT_CONFIGURED"
     status_code = 503

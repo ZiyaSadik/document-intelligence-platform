@@ -113,7 +113,7 @@ and wires `DATABASE_URL` between them automatically.
 
 ## 4. Verify the deployment
 
-With `BASE=https://<your-service>.onrender.com`:
+With `BASE=https://document-intelligence-api-lffm.onrender.com`:
 
 ```bash
 # 1. Health — expect status ok, database connected, extraction_configured true
@@ -150,8 +150,14 @@ If `extraction_configured` is `false`, the key was not saved — set it under
 
 ## 5. Fill in the URLs
 
-Update the table at the top of [`README.md`](../README.md) with the live
-frontend, API, Swagger and repository URLs, then commit and push.
+Live deployment URLs (also recorded in [`README.md`](../README.md)):
+
+| What | URL |
+|---|---|
+| Frontend (dashboard) | <https://document-intelligence-api-lffm.onrender.com> |
+| Backend API base | <https://document-intelligence-api-lffm.onrender.com> |
+| Swagger / OpenAPI | <https://document-intelligence-api-lffm.onrender.com/docs> |
+| Health endpoint | <https://document-intelligence-api-lffm.onrender.com/api/v1/health> |
 
 ---
 

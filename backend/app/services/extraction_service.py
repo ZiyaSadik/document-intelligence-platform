@@ -27,6 +27,7 @@ from app.core.config import settings
 from app.core.exceptions import (
     ExtractionError,
     ModelNotConfiguredError,
+    ModelQuotaExceededError,
     ModelUnavailableError,
 )
 from app.core.logging import get_logger
@@ -35,6 +36,44 @@ from app.schemas.extraction import InvoiceExtraction, StatementExtraction
 from app.services.ocr_service import DocumentContent
 
 logger = get_logger(__name__)
+
+# Phrases Anthropic uses (or close variants) when the account cannot pay for
+# another request. Matched case-insensitively against the SDK error text and
+# response body so a credit failure is not mis-labelled EXTRACTION_FAILED.
+_QUOTA_EXHAUSTED_MARKERS = (
+    "credit balance",
+    "purchase credits",
+    "plans & billing",
+    "too low to access the anthropic api",
+    "insufficient credit",
+    "quota exceeded",
+    "exceeded your current quota",
+    "usage limit",
+    "usage_limit",
+    "spending limit",
+    "monthly limit",
+)
+
+
+def _provider_error_text(exc: BaseException) -> str:
+    """Flatten the SDK exception plus any structured body into one string."""
+    parts = [str(exc)]
+    body = getattr(exc, "body", None)
+    if isinstance(body, dict):
+        error = body.get("error", body)
+        if isinstance(error, dict):
+            parts.append(str(error.get("type", "")))
+            parts.append(str(error.get("message", "")))
+        else:
+            parts.append(str(body))
+    elif body is not None:
+        parts.append(str(body))
+    return " ".join(parts).lower()
+
+
+def _is_quota_exhausted(exc: BaseException) -> bool:
+    text = _provider_error_text(exc)
+    return any(marker in text for marker in _QUOTA_EXHAUSTED_MARKERS)
 
 
 BASE_SYSTEM_PROMPT = """\
@@ -344,6 +383,11 @@ class ExtractionService:
                 log_detail=str(exc),
             ) from exc
         except anthropic.RateLimitError as exc:
+            if _is_quota_exhausted(exc):
+                raise ModelQuotaExceededError(
+                    context={"file_name": filename},
+                    log_detail=str(exc),
+                ) from exc
             raise ModelUnavailableError(
                 "The extraction service is rate limited. Please retry shortly.",
                 context={"file_name": filename},
@@ -351,6 +395,11 @@ class ExtractionService:
             ) from exc
         except anthropic.APIStatusError as exc:
             status = getattr(exc, "status_code", None)
+            if _is_quota_exhausted(exc):
+                raise ModelQuotaExceededError(
+                    context={"file_name": filename},
+                    log_detail=f"status={status}: {exc}",
+                ) from exc
             if status is not None and 500 <= status < 600:
                 raise ModelUnavailableError(
                     context={"file_name": filename},

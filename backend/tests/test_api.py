@@ -240,6 +240,22 @@ def test_extraction_failure_returns_a_controlled_error(client_factory):
     assert "Traceback" not in body
 
 
+def test_quota_exhaustion_returns_model_quota_exceeded(client_factory):
+    from app.core.exceptions import ModelQuotaExceededError
+
+    stub = StubExtractionService(
+        ModelQuotaExceededError(log_detail="credit balance is too low — do not leak")
+    )
+    client = client_factory(stub=stub)
+    response = upload(client, make_pdf(1), name="x.pdf", doc_type="invoice")
+    assert response.status_code == 503
+    error = response.json()["error"]
+    assert error["code"] == "MODEL_QUOTA_EXCEEDED"
+    assert "credit" in error["message"].lower() or "quota" in error["message"].lower()
+    assert "too low" not in response.text
+    assert "do not leak" not in response.text
+
+
 # ---------------------------------------------------------------------------
 # Retrieval
 # ---------------------------------------------------------------------------

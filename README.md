@@ -16,10 +16,10 @@ a dashboard.
 
 | What | URL |
 |---|---|
-| Frontend (dashboard) | `<FILL IN AFTER DEPLOY>` |
-| Backend API base | `<FILL IN AFTER DEPLOY>/api/v1` |
-| Swagger / OpenAPI | `<FILL IN AFTER DEPLOY>/docs` |
-| Health endpoint | `<FILL IN AFTER DEPLOY>/api/v1/health` |
+| Frontend (dashboard) | <https://document-intelligence-api-lffm.onrender.com> |
+| Backend API base | <https://document-intelligence-api-lffm.onrender.com> |
+| Swagger / OpenAPI | <https://document-intelligence-api-lffm.onrender.com/docs> |
+| Health endpoint | <https://document-intelligence-api-lffm.onrender.com/api/v1/health> |
 | Public repository | <https://github.com/ZiyaSadik/document-intelligence-platform> |
 
 The frontend and the API are one deployed service: the dashboard is served by

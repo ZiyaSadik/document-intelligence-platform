@@ -9,6 +9,7 @@ data/
 *.sqlite3
 
 # Source dataset (not redistributed)
+New Dataset/
 *.zip
 *.docx
 
