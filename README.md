@@ -540,7 +540,7 @@ frontend/
   templates/                       base · dashboard · document_result
   static/css/app.css               hand-written, no framework
   static/js/                       common · dashboard · result
-docs/                              architecture.png · DEPLOYMENT.md · solution_presentation.pptx
+docs/                              architecture.png · DEPLOYMENT.md · solution_presentation.pdf · solution_presentation.pptx
 sample_outputs/                    real pipeline output for the test matrix
 scripts/                           generate_samples.py · generate_architecture.py · generate_presentation.py
 Dockerfile · render.yaml · .env.example · .gitignore
@@ -554,7 +554,7 @@ Dockerfile · render.yaml · .env.example · .gitignore
 cd backend && pytest
 ```
 
-**126 tests, no network access** — the Anthropic client is stubbed throughout,
+**138 tests, no network access** — the Anthropic client is stubbed throughout,
 so the suite runs identically in CI and with no API key.
 
 - `test_validation.py` — unsupported type, extension/magic-byte mismatch, empty,
