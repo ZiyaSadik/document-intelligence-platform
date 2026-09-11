@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Dashboard &middot; {{ app_name }}{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <div class="panel-head">
+    <h1>Process a document</h1>
+    <p class="muted">
+      PDF, JPG or PNG, up to {{ max_page_count }} pages and {{ max_upload_mb }} MB.
+      Pick the document type &mdash; it is sent to the API as request metadata.
+    </p>
+  </div>
+
+  {% if not extraction_configured %}
+  <div class="banner banner-warn" role="alert">
+    <strong>Extraction is not configured.</strong>
+    <span><code>ANTHROPIC_API_KEY</code> is not set on this deployment, so uploads
+    will be rejected with <code>MODEL_NOT_CONFIGURED</code>. Reads and the
+    dashboard still work.</span>
+  </div>
+  {% endif %}
+
+  <form id="upload-form" class="upload-form" novalidate>
+    <div class="field">
+      <label for="document_type">Document type</label>
+      <select id="document_type" name="document_type" required>
+        {% for value, label in document_types %}
+        <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="field field-grow">
+      <label for="file">Document</label>
+      <input type="file" id="file" name="file"
+             accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" required>
+    </div>
+
+    <div class="field field-action">
+      <button type="submit" id="process-btn" class="btn btn-primary">Process</button>
+    </div>
+  </form>
+
+  <div id="upload-status" class="upload-status" hidden></div>
+</section>
+
+<section class="panel">
+  <div class="panel-head panel-head-row">
+    <div>
+      <h2>Processed documents</h2>
+      <p class="muted" id="list-summary">Loading&hellip;</p>
+    </div>
+    <div class="filters">
+      <input type="search" id="search" placeholder="Search by name&hellip;"
+             aria-label="Search processed documents by name">
+      <select id="type-filter" aria-label="Filter by document type">
+        <option value="">All types</option>
+        {% for value, label in document_types %}
+        <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+      </select>
+      <button type="button" id="refresh-btn" class="btn">Refresh</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data-table" id="documents-table">
+      <thead>
+        <tr>
+          <th scope="col">Document</th>
+          <th scope="col">Type</th>
+          <th scope="col">Status</th>
+          <th scope="col">Validation</th>
+          <th scope="col">Confidence</th>
+          <th scope="col">Source</th>
+          <th scope="col">Time</th>
+          <th scope="col">Processed</th>
+        </tr>
+      </thead>
+      <tbody id="documents-body">
+        <tr><td colspan="8" class="empty">Loading&hellip;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/common.js"></script>
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

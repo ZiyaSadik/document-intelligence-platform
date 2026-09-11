@@ -1,0 +1,53 @@
+# Render blueprint. Import this repository at
+# https://dashboard.render.com/blueprints and Render creates both services.
+#
+# Why PostgreSQL rather than the SQLite default: a free-tier web service has an
+# ephemeral filesystem, so a SQLite file is wiped on every redeploy and on cold
+# start. The dashboard would silently empty itself mid-evaluation. The ORM layer
+# is backend-agnostic; only DATABASE_URL changes.
+services:
+  - type: web
+    name: document-intelligence-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: document-intelligence-db
+          property: connectionString
+      # Set this in the Render dashboard; never commit it.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-5
+      - key: ANTHROPIC_EFFORT
+        value: high
+      - key: ANTHROPIC_MAX_TOKENS
+        value: "32000"
+      - key: ANTHROPIC_TIMEOUT_SECONDS
+        value: "300"
+      - key: MAX_UPLOAD_MB
+        value: "20"
+      - key: MAX_PAGE_COUNT
+        value: "3"
+      - key: RASTER_DPI
+        value: "200"
+      - key: VALIDATION_ABS_TOLERANCE
+        value: "1.0"
+      - key: VALIDATION_REL_TOLERANCE
+        value: "0.005"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_JSON
+        value: "true"
+      - key: ENVIRONMENT
+        value: production
+
+databases:
+  - name: document-intelligence-db
+    plan: free
+    region: singapore

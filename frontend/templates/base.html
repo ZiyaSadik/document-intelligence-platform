@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ app_name }}{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#128196;</text></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Document Intelligence</strong>
+          <small>Extraction &middot; Validation &middot; API</small>
+        </span>
+      </a>
+      <nav class="topbar-nav">
+        <a href="/">Dashboard</a>
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+        <a href="/api/v1/health" target="_blank" rel="noopener">Health</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <span>{{ app_name }} v{{ app_version }}</span>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

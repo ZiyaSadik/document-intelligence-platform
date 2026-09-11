@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}{{ document_name }} &middot; {{ app_name }}{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb"><a href="/">&larr; Dashboard</a></nav>
+
+{% if not found %}
+<section class="panel">
+  <div class="banner banner-error">
+    <strong>Not found.</strong>
+    <span>No processed result is stored for <code>{{ document_name }}</code>.</span>
+  </div>
+</section>
+{% else %}
+
+<section class="panel" id="summary-panel">
+  <div class="panel-head panel-head-row">
+    <div>
+      <h1 id="doc-title">{{ document_name }}</h1>
+      <p class="muted" id="doc-subtitle">Loading&hellip;</p>
+    </div>
+    <div id="status-badges" class="badges"></div>
+  </div>
+  <dl class="summary-grid" id="summary-grid"></dl>
+</section>
+
+<section class="panel" id="issues-panel" hidden>
+  <div class="panel-head"><h2>Attention</h2></div>
+  <ul class="issue-list" id="issue-list"></ul>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <h2>Extracted fields</h2>
+    <p class="muted">
+      Missing values are highlighted. Hover a value to see the source text it
+      was read from.
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table" id="fields-table">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Value</th>
+          <th scope="col">As printed</th>
+          <th scope="col">Page</th>
+          <th scope="col">Confidence</th>
+        </tr>
+      </thead>
+      <tbody id="fields-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel" id="key-figures-panel" hidden>
+  <div class="panel-head">
+    <h2>Key figures by period</h2>
+    <p class="muted">The named figures the specification requires, per reporting period.</p>
+  </div>
+  <div class="table-wrap"><table class="data-table" id="key-figures-table"></table></div>
+</section>
+
+<section class="panel" id="lines-panel" hidden>
+  <div class="panel-head panel-head-row">
+    <div>
+      <h2 id="lines-title">Line items</h2>
+      <p class="muted" id="lines-subtitle"></p>
+    </div>
+  </div>
+  <div class="table-wrap"><table class="data-table" id="lines-table"></table></div>
+</section>
+
+<section class="panel">
+  <div class="panel-head panel-head-row">
+    <div>
+      <h2>Financial validation</h2>
+      <p class="muted" id="validation-subtitle"></p>
+    </div>
+    <label class="toggle">
+      <input type="checkbox" id="hide-na"> Hide not-applicable
+    </label>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table" id="checks-table">
+      <thead>
+        <tr>
+          <th scope="col">Check</th>
+          <th scope="col">Period</th>
+          <th scope="col">Formula</th>
+          <th scope="col">Operands</th>
+          <th scope="col">Calculated</th>
+          <th scope="col">Reported</th>
+          <th scope="col">Variance</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody id="checks-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <details id="raw-json">
+    <summary><h2>Raw JSON response</h2></summary>
+    <div class="raw-actions">
+      <button type="button" class="btn" id="copy-json">Copy</button>
+      <a class="btn" id="api-link" target="_blank" rel="noopener">Open API response</a>
+    </div>
+    <pre class="json-view" id="json-view">Loading&hellip;</pre>
+  </details>
+</section>
+
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if found %}
+<script>window.DOCUMENT_NAME = {{ document_name | tojson }};</script>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/result.js"></script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+# --- Web framework ---------------------------------------------------------
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+python-multipart==0.0.32        # multipart/form-data upload parsing
+jinja2==3.1.6                   # server-rendered dashboard templates
+
+# --- Configuration & validation -------------------------------------------
+pydantic==2.13.5
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+
+# --- Persistence -----------------------------------------------------------
+SQLAlchemy==2.0.52
+psycopg[binary]==3.3.5          # used only when DATABASE_URL targets PostgreSQL
+
+# --- Document parsing / rasterisation --------------------------------------
+# pypdfium2 ships a self-contained binary wheel, so page rendering needs no
+# system packages (no poppler, no ghostscript) in the container image.
+pdfplumber==0.11.10             # native PDF text layer
+pypdfium2==5.13.0               # page rasterisation + page counting
+pillow==12.3.0                  # image normalisation
+
+# --- LLM -------------------------------------------------------------------
+anthropic==1.5.0                # vision extraction with structured outputs
+
+# --- Testing (not required at runtime, kept here for a single install path) -
+pytest==9.1.1
+httpx==0.28.1                   # FastAPI TestClient transport
