@@ -6,7 +6,11 @@ handling, validation, persistence and error envelope without a network call.
 
 from __future__ import annotations
 
+import asyncio
+import time
+
 import pytest
+from httpx import ASGITransport, AsyncClient
 
 from app.core.exceptions import ExtractionError
 from tests import factories
@@ -30,6 +34,49 @@ def test_health(client_factory):
     body = response.json()
     assert body["status"] in {"ok", "degraded"}
     assert "version" in body and "extraction_configured" in body
+
+
+def test_health_stays_responsive_during_processing(client_factory):
+    """Regression: a long extraction must not block the event loop.
+
+    Render probes /api/v1/health with a 5s timeout. If process() ran inline in
+    the async handler, the probe would hang and the instance would get a 502.
+    """
+
+    class SlowExtractionService(StubExtractionService):
+        def extract(self, content, *, document_type, filename):
+            time.sleep(1.5)
+            return super().extract(
+                content, document_type=document_type, filename=filename
+            )
+
+    client = client_factory(stub=SlowExtractionService(factories.invoice()))
+    transport = ASGITransport(app=client.app)
+
+    async def _exercise() -> None:
+        async with AsyncClient(transport=transport, base_url="http://test") as http:
+            process_task = asyncio.create_task(
+                http.post(
+                    "/api/v1/documents/process",
+                    files={
+                        "file": ("receipt.jpg", make_image("JPEG"), "image/jpeg")
+                    },
+                    data={"document_type": "invoice"},
+                )
+            )
+            await asyncio.sleep(0.1)
+            started = time.perf_counter()
+            health = await http.get("/api/v1/health")
+            waited = time.perf_counter() - started
+            process = await process_task
+
+        assert health.status_code == 200
+        assert waited < 0.75, (
+            f"health took {waited:.2f}s; the event loop was blocked by processing"
+        )
+        assert process.status_code == 200
+
+    asyncio.run(_exercise())
 
 
 def test_openapi_documents_every_required_endpoint(client_factory):

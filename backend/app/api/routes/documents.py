@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Annotated
 
 from fastapi import APIRouter, File, Form, Path, Query, UploadFile, status
+from starlette.concurrency import run_in_threadpool
 
 from app.api.deps import DocumentServiceDep, LimitDep, OffsetDep, parse_document_type
 from app.core.config import settings
@@ -73,8 +74,14 @@ async def process_document(
     if not payload:
         raise EmptyFileError(context={"file_name": file.filename})
 
-    return service.process(
-        payload, filename=file.filename, document_type=parsed_type
+    # Offload the blocking OCR + model call. This handler is async so it can
+    # await the upload read, but running process() inline would pin the event
+    # loop for tens of seconds and make /api/v1/health miss Render's 5s probe.
+    return await run_in_threadpool(
+        service.process,
+        payload,
+        filename=file.filename,
+        document_type=parsed_type,
     )
 
 
