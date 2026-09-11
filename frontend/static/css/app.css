@@ -104,6 +104,16 @@ code {
 }
 
 /* ---- Section labels -------------------------------------------------- */
+/* Numbers come from visible panels only, so optional sections (attention,
+   figures, lines) do not leave gaps like 01 → 03. */
+.page {
+  counter-reset: section-num;
+}
+
+.panel:not([hidden]) {
+  counter-increment: section-num;
+}
+
 .section-label {
   display: block;
   margin: 0 0 0.65rem;
@@ -112,6 +122,10 @@ code {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--green);
+}
+
+.panel:not([hidden]) .section-label::before {
+  content: counter(section-num, decimal-leading-zero) " \2014\00a0";
 }
 
 /* ---- Chrome ---------------------------------------------------------- */
