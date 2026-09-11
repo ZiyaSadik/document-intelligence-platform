@@ -2,7 +2,7 @@
 {% block title %}{{ document_name }} &middot; {{ app_name }}{% endblock %}
 
 {% block content %}
-<nav class="breadcrumb"><a href="/">&larr; Dashboard</a></nav>
+<nav class="breadcrumb"><a href="/">&larr; Back to dashboard</a></nav>
 
 {% if not found %}
 <section class="panel">
@@ -16,6 +16,7 @@
 <section class="panel" id="summary-panel">
   <div class="panel-head panel-head-row">
     <div>
+      <span class="section-label">01 — summary</span>
       <h1 id="doc-title">{{ document_name }}</h1>
       <p class="muted" id="doc-subtitle">Loading&hellip;</p>
     </div>
@@ -25,12 +26,16 @@
 </section>
 
 <section class="panel" id="issues-panel" hidden>
-  <div class="panel-head"><h2>Attention</h2></div>
+  <div class="panel-head">
+    <span class="section-label">02 — attention</span>
+    <h2>Attention</h2>
+  </div>
   <ul class="issue-list" id="issue-list"></ul>
 </section>
 
 <section class="panel">
   <div class="panel-head">
+    <span class="section-label">03 — fields</span>
     <h2>Extracted fields</h2>
     <p class="muted">
       Missing values are highlighted. Hover a value to see the source text it
@@ -55,6 +60,7 @@
 
 <section class="panel" id="key-figures-panel" hidden>
   <div class="panel-head">
+    <span class="section-label">04 — figures</span>
     <h2>Key figures by period</h2>
     <p class="muted">The named figures the specification requires, per reporting period.</p>
   </div>
@@ -64,6 +70,7 @@
 <section class="panel" id="lines-panel" hidden>
   <div class="panel-head panel-head-row">
     <div>
+      <span class="section-label">05 — lines</span>
       <h2 id="lines-title">Line items</h2>
       <p class="muted" id="lines-subtitle"></p>
     </div>
@@ -74,6 +81,7 @@
 <section class="panel">
   <div class="panel-head panel-head-row">
     <div>
+      <span class="section-label">06 — validation</span>
       <h2>Financial validation</h2>
       <p class="muted" id="validation-subtitle"></p>
     </div>
@@ -102,12 +110,17 @@
 
 <section class="panel">
   <details id="raw-json">
-    <summary><h2>Raw JSON response</h2></summary>
-    <div class="raw-actions">
-      <button type="button" class="btn" id="copy-json">Copy</button>
-      <a class="btn" id="api-link" target="_blank" rel="noopener">Open API response</a>
+    <summary class="panel-head">
+      <span class="section-label">07 — raw</span>
+      <h2>Raw JSON response</h2>
+    </summary>
+    <div class="raw-body">
+      <div class="raw-actions">
+        <button type="button" class="btn" id="copy-json">Copy</button>
+        <a class="btn" id="api-link" target="_blank" rel="noopener">Open API response</a>
+      </div>
+      <pre class="json-view" id="json-view">Loading&hellip;</pre>
     </div>
-    <pre class="json-view" id="json-view">Loading&hellip;</pre>
   </details>
 </section>
 

@@ -4,10 +4,11 @@
 {% block content %}
 <section class="panel">
   <div class="panel-head">
+    <span class="section-label">01 — intake</span>
     <h1>Process a document</h1>
     <p class="muted">
-      PDF, JPG or PNG, up to {{ max_page_count }} pages and {{ max_upload_mb }} MB.
-      Pick the document type &mdash; it is sent to the API as request metadata.
+      PDF, JPG or PNG · up to {{ max_page_count }} pages · {{ max_upload_mb }} MB.
+      Choose the document type, then run extraction and reconciliation.
     </p>
   </div>
 
@@ -20,26 +21,34 @@
   </div>
   {% endif %}
 
-  <form id="upload-form" class="upload-form" novalidate>
-    <div class="field">
-      <label for="document_type">Document type</label>
-      <select id="document_type" name="document_type" required>
-        {% for value, label in document_types %}
-        <option value="{{ value }}">{{ label }}</option>
-        {% endfor %}
-      </select>
-    </div>
+  <div class="upload-zone">
+    <ul class="upload-zone-hint" aria-hidden="true">
+      <li>PDF, JPG or PNG</li>
+      <li>Up to {{ max_page_count }} pages</li>
+      <li>Up to {{ max_upload_mb }} MB</li>
+    </ul>
 
-    <div class="field field-grow">
-      <label for="file">Document</label>
-      <input type="file" id="file" name="file"
-             accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" required>
-    </div>
+    <form id="upload-form" class="upload-form" novalidate>
+      <div class="field">
+        <label for="document_type">Document type</label>
+        <select id="document_type" name="document_type" required>
+          {% for value, label in document_types %}
+          <option value="{{ value }}">{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-    <div class="field field-action">
-      <button type="submit" id="process-btn" class="btn btn-primary">Process</button>
-    </div>
-  </form>
+      <div class="field field-grow">
+        <label for="file">Document</label>
+        <input type="file" id="file" name="file"
+               accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" required>
+      </div>
+
+      <div class="field field-action">
+        <button type="submit" id="process-btn" class="btn btn-primary">Process</button>
+      </div>
+    </form>
+  </div>
 
   <div id="upload-status" class="upload-status" hidden></div>
 </section>
@@ -47,6 +56,7 @@
 <section class="panel">
   <div class="panel-head panel-head-row">
     <div>
+      <span class="section-label">02 — ledger</span>
       <h2>Processed documents</h2>
       <p class="muted" id="list-summary">Loading&hellip;</p>
     </div>
