@@ -9,7 +9,7 @@ from contextlib import AbstractContextManager
 from typing import Any
 
 import anthropic
-import httpx2
+import httpx
 import pytest
 from pydantic import BaseModel
 
@@ -29,12 +29,12 @@ def _status_error(
     message: str,
     error_type: str = "invalid_request_error",
 ) -> anthropic.APIStatusError:
-    request = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
+    request = httpx.Request("POST", "https://api.anthropic.com/v1/messages")
     body = {
         "type": "error",
         "error": {"type": error_type, "message": message},
     }
-    response = httpx2.Response(status_code, request=request, json=body)
+    response = httpx.Response(status_code, request=request, json=body)
     return cls(message, response=response, body=body)
 
 

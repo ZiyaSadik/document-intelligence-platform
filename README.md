@@ -26,7 +26,7 @@ The frontend and the API are one deployed service: the dashboard is served by
 the same FastAPI process that serves the API, so there is one URL, one origin
 and no CORS configuration to get wrong.
 
-The live dashboard holds a **curated demonstration set** — 12 processed
+The live dashboard holds a **curated demonstration set** — 13 processed
 documents covering all four types, both read paths (one statement is read from
 its native PDF text layer, the rest are rasterised and read visually), a
 two-page statement, a GST invoice and two thermal receipts — plus one
@@ -186,8 +186,8 @@ is committed.** See [`.env.example`](.env.example) for the full annotated list.
 | `RASTER_DPI` | `200` | Rendering resolution. |
 | `MAX_IMAGE_EDGE_PX` | `2000` | Longest-edge cap before encoding. |
 | `JPEG_QUALITY` | `85` | Encoding quality. |
-| `VALIDATION_ABS_TOLERANCE` | `1.0` | Absolute reconciliation tolerance. |
-| `VALIDATION_REL_TOLERANCE` | `0.005` | Relative tolerance (0.5%). |
+| `VALIDATION_ABS_TOLERANCE` | `0.1` | Absolute reconciliation tolerance. |
+| `VALIDATION_REL_TOLERANCE` | `1e-5` | Relative tolerance term in the combined rule. |
 | `LOG_LEVEL` / `LOG_JSON` | `INFO` / `true` | JSON logs in deployment, text locally. |
 | `ENVIRONMENT` | `local` | Reported by `/api/v1/health`. |
 
@@ -278,7 +278,7 @@ Abridged response:
     ],
     "overall_status": "PASS",
     "issues": [],
-    "tolerance": { "absolute": 1.0, "relative": 0.005 }
+    "tolerance": { "absolute": 0.1, "relative": 0.00001 }
   },
   "processing_metadata": {
     "ocr_used": true,
@@ -330,6 +330,7 @@ envelope, with the correlation id that ties it to the server logs:
 
 | Code | Status | Meaning |
 |---|---|---|
+| `DOCUMENT_VALIDATION_FAILED` | 400 | Generic upload-validation failure (base for file-control errors). |
 | `UNSUPPORTED_FILE_TYPE` | 400 | The bytes are not a PDF, JPEG or PNG. |
 | `EMPTY_FILE` | 400 | Zero-byte upload. |
 | `CORRUPTED_FILE` | 400 | Unreadable or password-protected. |
@@ -341,6 +342,7 @@ envelope, with the correlation id that ties it to the server logs:
 | `OCR_FAILED` | 422 | No readable content could be obtained. |
 | `EXTRACTION_FAILED` | 502 | The model could not produce a valid result. |
 | `MODEL_UNAVAILABLE` | 503 | Rate limited, upstream 5xx, or unreachable. |
+| `MODEL_QUOTA_EXCEEDED` | 503 | Anthropic credit, billing or usage-quota exhaustion. |
 | `MODEL_NOT_CONFIGURED` | 503 | `ANTHROPIC_API_KEY` unset or rejected. |
 | `STORAGE_FAILED` | 503 | The database write failed. |
 | `INTERNAL_ERROR` | 500 | Anything unexpected. |
@@ -434,15 +436,17 @@ check is `NOT_APPLICABLE`.
 
 ### Tolerance
 
-A check passes when **either**:
+A check passes when the combined allowance holds:
 
-- `|calculated − reported| ≤ VALIDATION_ABS_TOLERANCE` (default `1.0`), **or**
-- `|calculated − reported| / max(|calculated|, |reported|) ≤ VALIDATION_REL_TOLERANCE` (default `0.005`, i.e. 0.5%).
+`|calculated − reported| ≤ VALIDATION_ABS_TOLERANCE + VALIDATION_REL_TOLERANCE × scale`
 
-Both are needed. Absolute-only is far too strict on figures in the hundreds of
-thousands of crore; relative-only is far too strict near zero. On statements
-denominated "in crore", an absolute tolerance of 1.0 means one crore — which is
-the rounding granularity these documents are printed at.
+where `scale = max(|calculated|, |reported|)`, `VALIDATION_ABS_TOLERANCE` defaults
+to `0.1`, and `VALIDATION_REL_TOLERANCE` defaults to `1e-5`.
+
+The absolute term absorbs rounding at printed precision (a sum of many figures
+each rounded to 2dp can drift ~0.1); the relative term is a small safety valve
+so that drift can grow with magnitude. An OR of absolute-or-relative is too
+loose at both ends.
 
 ### Mapping captions to concepts
 

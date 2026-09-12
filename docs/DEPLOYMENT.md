@@ -54,7 +54,7 @@ Make sure the repository visibility is **Public** — the brief requires it.
 A deploy that fails on something a local run would have caught wastes a cycle.
 
 ```bash
-cd backend && pytest          # expect 126 passed
+cd backend && pytest          # expect 140 passed
 cd backend && uvicorn app.main:app --port 8000
 curl localhost:8000/api/v1/health
 ```
