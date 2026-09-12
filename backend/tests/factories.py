@@ -385,3 +385,33 @@ def gst_invoice_with_split_tax() -> InvoiceExtraction:
             NamedValue(label="Contact (Consignee)", raw_value="9831715156"),
         ],
     )
+
+
+def profit_and_loss_with_amalgamation() -> StatementExtraction:
+    """A P&L whose appropriation build-up carries a restructuring line.
+
+    152,530,250 + 274,507 + 248,255,886 = 401,060,643. Without the
+    "Impact on amalgamation" row the check is short by exactly that row,
+    which is the signature of a missing operand rather than a bad document.
+    """
+    return statement(
+        [
+            row("Interest earned", "732,713,529", "631,615,614", section="I INCOME"),
+            row("Other income", "128,776,329", "112,116,541", section="I INCOME"),
+            row("Total", "861,489,858", "743,732,155", section="I INCOME",
+                is_total=True),
+            row("Net profit for the year", "152,874,022", "128,173,250",
+                section="III PROFIT", is_total=True),
+            row("Less: Minority interest", "367,165", "197,212",
+                section="III PROFIT"),
+            row("Consolidated profit for the year attributable to the group",
+                "152,530,250", "128,013,316", section="III PROFIT", is_total=True),
+            row("Impact on amalgamation [Refer Schedule 18(1)]", "274,507", "-",
+                section="III PROFIT"),
+            row("Balance in Profit and Loss account brought forward",
+                "248,255,886", "195,508,642", section="III PROFIT"),
+            row("Total", "401,060,643", "323,521,958", section="III PROFIT",
+                is_total=True),
+        ],
+        title="Consolidated Profit and Loss Account",
+    )

@@ -496,6 +496,7 @@ class FinancialValidationService:
 
         brought_forward = values.get("profit_brought_forward")
         appropriation = values.get("total_available_for_appropriation")
+        adjustment = values.get("appropriation_adjustment")
 
         return [
             self._check(
@@ -567,16 +568,28 @@ class FinancialValidationService:
             self._check(
                 name="appropriation_check",
                 description=(
-                    "Current-year profit plus profit brought forward equals the "
+                    "Current-year profit plus profit brought forward, plus any "
+                    "restructuring adjustment printed between them, equals the "
                     "total available for appropriation."
                 ),
-                formula="net_profit_attributable_to_group + profit_brought_forward",
+                formula=(
+                    "net_profit_attributable_to_group + profit_brought_forward "
+                    "+ appropriation_adjustment"
+                ),
                 period=period,
                 operands={
                     "net_profit_attributable_to_group": attributable,
                     "profit_brought_forward": brought_forward,
+                    "appropriation_adjustment": adjustment,
                 },
-                calculated=safe_sum([attributable, brought_forward]),
+                # The adjustment line is genuinely optional - most years do not
+                # print one - so its absence contributes zero rather than
+                # voiding the check, unlike the two core operands.
+                calculated=(
+                    attributable + brought_forward + (adjustment or 0.0)
+                    if attributable is not None and brought_forward is not None
+                    else None
+                ),
                 reported=appropriation,
             ),
         ]

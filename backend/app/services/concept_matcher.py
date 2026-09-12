@@ -264,6 +264,16 @@ PROFIT_AND_LOSS_CONCEPTS: tuple[ConceptRule, ...] = (
         section_any=("profit", "appropriation"),
         must_not_contain=("income", "expenditure"),
     ),
+    # A restructuring can add a third component to the appropriation build-up,
+    # printed between the year's profit and the brought-forward balance -
+    # "Impact on amalgamation", say. Most years omit it, so it is an optional
+    # operand rather than a required one, exactly like the cash-flow
+    # translation adjustment.
+    ConceptRule(
+        concept="appropriation_adjustment",
+        must_contain=("amalgamation",),
+        must_not_contain=("cash", "activities"),
+    ),
 )
 
 # ---------------------------------------------------------------------------

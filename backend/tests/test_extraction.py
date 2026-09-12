@@ -564,3 +564,30 @@ def test_line_sum_still_checks_against_a_printed_subtotal(service):
     check = by_name(result.checks, "line_items_subtotal_check")
     assert check.status is CheckStatus.PASS
     assert check.reported_value == pytest.approx(12_500.00)
+
+
+def test_appropriation_absorbs_a_restructuring_adjustment(service):
+    """A third component in the appropriation build-up must be counted.
+
+    Found on a real 2017 statement: the check failed by exactly the
+    "Impact on amalgamation" line the document prints between the year's
+    profit and the brought-forward balance.
+    """
+    result = service.validate(
+        factories.profit_and_loss_with_amalgamation(),
+        document_type=DocumentType.PROFIT_AND_LOSS,
+    )
+    check = by_name(result.checks, "appropriation_check", CURRENT)
+    assert check.status is CheckStatus.PASS
+    assert check.calculated_value == pytest.approx(401_060_643)
+    assert check.operands["appropriation_adjustment"] == pytest.approx(274_507)
+
+
+def test_appropriation_still_works_without_an_adjustment(service):
+    """Most years print no such line; its absence must contribute zero."""
+    result = service.validate(
+        factories.profit_and_loss(), document_type=DocumentType.PROFIT_AND_LOSS
+    )
+    check = by_name(result.checks, "appropriation_check", CURRENT)
+    assert check.status is CheckStatus.PASS
+    assert check.operands["appropriation_adjustment"] is None
