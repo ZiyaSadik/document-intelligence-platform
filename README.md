@@ -26,6 +26,13 @@ The frontend and the API are one deployed service: the dashboard is served by
 the same FastAPI process that serves the API, so there is one URL, one origin
 and no CORS configuration to get wrong.
 
+The live dashboard holds a **curated demonstration set** — 12 processed
+documents covering all four types, both read paths (one statement is read from
+its native PDF text layer, the rest are rasterised and read visually), a
+two-page statement, a GST invoice and two thermal receipts — plus one
+deliberately rejected unsupported file, so the input-control layer's error
+envelope is visible too. Uploading more through the UI simply adds rows.
+
 See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the step-by-step deploy
 runbook.
 
@@ -408,7 +415,7 @@ statement whose wording nobody anticipated.
 | `total_expenditure_check` | `interest_expended + operating_expenses + provisions_and_contingencies = total_expenditure` |
 | `net_profit_before_minority_interest_check` | `total_income − total_expenditure = profit before minority interest` |
 | `net_profit_attributable_to_group_check` | `profit before minority interest − minority interest = profit attributable to the group` |
-| `appropriation_check` | `current profit + profit brought forward = total available for appropriation` |
+| `appropriation_check` | `current profit + profit brought forward + restructuring adjustment = total available for appropriation` |
 
 ### Cash flow statement
 
@@ -419,7 +426,10 @@ statement whose wording nobody anticipated.
 
 The FX/translation and amalgamation lines are genuinely optional — most years do
 not print them — so their absence contributes zero rather than voiding the
-check. The three activity subtotals are not optional: if one is missing the
+check. The P&L appropriation check treats a restructuring line the same way: a
+2017 statement in the corpus prints `Impact on amalgamation [Refer Schedule
+18(1)]` between the year's profit and the brought-forward balance, and the
+check was short by exactly that figure until it was counted. The three activity subtotals are not optional: if one is missing the
 check is `NOT_APPLICABLE`.
 
 ### Tolerance
@@ -554,7 +564,7 @@ Dockerfile · render.yaml · .env.example · .gitignore
 cd backend && pytest
 ```
 
-**138 tests, no network access** — the Anthropic client is stubbed throughout,
+**140 tests, no network access** — the Anthropic client is stubbed throughout,
 so the suite runs identically in CI and with no API key.
 
 - `test_validation.py` — unsupported type, extension/magic-byte mismatch, empty,
