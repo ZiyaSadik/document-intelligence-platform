@@ -4,6 +4,13 @@ Kept as a script for the same reason as the architecture diagram: the deck
 describes the system, so it should be regenerable when the system changes.
 
     python scripts/generate_presentation.py
+
+WARNING - the committed deck has diverged from this script. It was re-themed
+after generation (green accent, Georgia titles) and then edited in place: the
+dashboard and result screenshots were refreshed from the live service and the
+closing slide gained the deployment URLs. Running this script will overwrite
+all of that with the older blue layout. Regenerate only if you intend to
+rebuild the deck from scratch, and re-apply the theme afterwards.
 """
 
 from __future__ import annotations
@@ -200,7 +207,7 @@ def s_title(p):
         ],
     )
     for index, (value, label) in enumerate(
-        [("4", "document types"), ("126", "automated tests"),
+        [("4", "document types"), ("140", "automated tests"),
          ("37", "checks, 0 failures"), ("1", "deployed service")]
     ):
         x = 1.0 + index * 2.45
@@ -686,7 +693,7 @@ def s_quality(p):
     )
 
     cells = [
-        ("Testing", "126 tests, zero network",
+        ("Testing", "140 tests, zero network",
          "The Anthropic client is stubbed throughout, so the suite runs the "
          "same in CI and with no API key."),
         ("Logging", "Structured, correlated",
@@ -870,7 +877,7 @@ def s_close(p):
             {"text": "README with setup, API reference, validation rules and "
                      "tolerance\n\nArchitecture diagram\n\nDeployment "
                      "runbook\n\nSample JSON outputs from the real pipeline\n\n"
-                     "126 automated tests",
+                     "140 automated tests",
              "size": 10.5, "color": MUTED_LIGHT},
         ],
     )
