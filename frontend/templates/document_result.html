@@ -130,7 +130,7 @@
 {% block scripts %}
 {% if found %}
 <script>window.DOCUMENT_NAME = {{ document_name | tojson }};</script>
-<script src="/static/js/common.js"></script>
-<script src="/static/js/result.js"></script>
+<script src="/static/js/common.js?v={{ asset_version }}"></script>
+<script src="/static/js/result.js?v={{ asset_version }}"></script>
 {% endif %}
 {% endblock %}

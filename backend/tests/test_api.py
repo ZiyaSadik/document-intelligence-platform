@@ -334,3 +334,52 @@ def test_result_page_renders_for_a_stored_document(client_factory):
 
 def test_result_page_404s_for_an_unknown_document(client_factory):
     assert client_factory().get("/documents/missing.pdf").status_code == 404
+
+
+# ---------------------------------------------------------------------------
+# Static asset cache-busting
+# ---------------------------------------------------------------------------
+def test_pages_fingerprint_their_static_assets(client_factory):
+    """Without a fingerprint a browser keeps the previous CSS after a deploy.
+
+    That is not hypothetical: a stylesheet fix shipped correctly, the server
+    served the new file, and the browser still rendered the old one.
+    """
+    import re
+
+    from app.utils.assets import asset_version
+
+    version = asset_version()
+    client = client_factory(factories.invoice())
+    upload(client, make_pdf(1), name="fp.pdf", doc_type="invoice")
+
+    for path in ("/", "/documents/fp.pdf"):
+        html = client.get(path).text
+        assets = re.findall(r'(?:href|src)="(/static/[^"]+)"', html)
+        assert assets, f"{path} links no local static assets"
+        for asset in assets:
+            assert f"?v={version}" in asset, f"{path} -> {asset} is not fingerprinted"
+
+
+def test_asset_version_tracks_content(tmp_path, monkeypatch):
+    """The fingerprint must change when an asset changes, and only then."""
+    from app.utils import assets
+
+    static = tmp_path / "static" / "css"
+    static.mkdir(parents=True)
+    css = static / "app.css"
+    css.write_text("body { color: red }", encoding="utf-8")
+    monkeypatch.setattr(
+        type(assets.settings), "static_dir",
+        property(lambda self: tmp_path / "static"),
+    )
+
+    assets.asset_version.cache_clear()
+    first = assets.asset_version()
+    assets.asset_version.cache_clear()
+    assert assets.asset_version() == first, "identical content must hash the same"
+
+    css.write_text("body { color: blue }", encoding="utf-8")
+    assets.asset_version.cache_clear()
+    assert assets.asset_version() != first, "changed content must change the hash"
+    assets.asset_version.cache_clear()

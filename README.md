@@ -569,7 +569,7 @@ Dockerfile · render.yaml · .env.example · .gitignore
 cd backend && pytest
 ```
 
-**140 tests, no network access** — the Anthropic client is stubbed throughout,
+**142 tests, no network access** — the Anthropic client is stubbed throughout,
 so the suite runs identically in CI and with no API key.
 
 - `test_validation.py` — unsupported type, extension/magic-byte mismatch, empty,

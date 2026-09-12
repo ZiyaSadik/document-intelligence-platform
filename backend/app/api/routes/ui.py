@@ -17,6 +17,7 @@ from fastapi.templating import Jinja2Templates
 from app.api.deps import DocumentServiceDep
 from app.core.config import settings
 from app.schemas.enums import DocumentType
+from app.utils.assets import asset_version
 
 router = APIRouter(include_in_schema=False)
 
@@ -35,6 +36,7 @@ def dashboard(request: Request) -> HTMLResponse:
             "max_page_count": settings.max_page_count,
             "app_name": settings.app_name,
             "app_version": settings.app_version,
+            "asset_version": asset_version(),
         },
     )
 
@@ -54,6 +56,7 @@ def document_result(
             "found": record is not None,
             "app_name": settings.app_name,
             "app_version": settings.app_version,
+            "asset_version": asset_version(),
         },
         status_code=200 if record is not None else 404,
     )

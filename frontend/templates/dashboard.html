@@ -96,6 +96,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/js/common.js"></script>
-<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/common.js?v={{ asset_version }}"></script>
+<script src="/static/js/dashboard.js?v={{ asset_version }}"></script>
 {% endblock %}
