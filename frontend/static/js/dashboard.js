@@ -85,7 +85,7 @@
           <td class="num">${item.processing_time_ms != null
             ? (item.processing_time_ms / 1000).toFixed(1) + "s"
             : "&mdash;"}</td>
-          <td>${fmtDateTime(item.processed_at)}</td>
+          <td class="when">${fmtDateTime(item.processed_at)}</td>
         </tr>`;
       })
       .join("");

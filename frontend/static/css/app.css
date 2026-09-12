@@ -543,11 +543,32 @@ button:focus-visible {
 }
 
 .data-table a {
-  color: var(--text);
+  color: var(--green-dark);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(77, 189, 36, 0.45);
 }
 
-.data-table a:hover { color: var(--green-dark); }
+.data-table a:hover {
+  color: var(--green-dark);
+  text-decoration-color: currentColor;
+}
+
+/* Verbatim source text: prose, not a figure. Without a cap it cannot wrap
+   and the column grows until Page and Confidence are pushed off-screen. */
+td.as-printed {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 30ch;
+}
+
+/* A processed-at stamp is a single token; wrapping it inflates every row. */
+td.when { white-space: nowrap; }
 
 .data-table .empty {
   text-align: center;
@@ -778,6 +799,10 @@ td.operands {
     flex-direction: column;
     align-items: stretch;
   }
+
+  /* flex-basis is measured along the main axis, which is now vertical, so a
+     320px basis made this field 280px tall instead of wide. */
+  .field-grow { flex: 1 1 auto; }
 
   .field-action { align-self: stretch; }
   .field-action .btn { width: 100%; text-align: center; }

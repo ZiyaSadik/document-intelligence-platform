@@ -120,7 +120,7 @@
             ${display}
             ${row.evidence ? `<span class="evidence">${esc(row.evidence)}</span>` : ""}
           </td>
-          <td class="num">${row.raw ? esc(row.raw) : "&mdash;"}</td>
+          <td class="as-printed">${row.raw ? esc(row.raw) : "&mdash;"}</td>
           <td class="num">${row.page != null ? row.page : "&mdash;"}</td>
           <td>${fmtConfidence(row.confidence)}</td>
         </tr>`;
