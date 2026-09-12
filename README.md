@@ -26,12 +26,13 @@ The frontend and the API are one deployed service: the dashboard is served by
 the same FastAPI process that serves the API, so there is one URL, one origin
 and no CORS configuration to get wrong.
 
-The live dashboard holds a **curated demonstration set** — 13 processed
-documents covering all four types, both read paths (one statement is read from
-its native PDF text layer, the rest are rasterised and read visually), a
-two-page statement, a GST invoice and two thermal receipts — plus one
-deliberately rejected unsupported file, so the input-control layer's error
-envelope is visible too. Uploading more through the UI simply adds rows.
+The live dashboard holds a **curated demonstration set** of 13 rows: **12
+processed documents** covering all four types, both read paths (one statement
+is read from its native PDF text layer, the rest are rasterised and read
+visually), a two-page statement, a GST invoice and two thermal receipts — plus
+**one deliberately rejected** unsupported file, so the input-control layer's
+error envelope is visible too. Every reconciliation that ran passed. Uploading
+more through the UI simply adds rows.
 
 See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the step-by-step deploy
 runbook.
